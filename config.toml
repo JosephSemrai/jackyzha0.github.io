@@ -1,4 +1,4 @@
-baseURL = "https://jzhao.xyz/"
+baseURL = "https://josephsemrai.com/"
 languageCode = "en-us"
 googleAnalytics = "G-WDD4K02HML"
 relativeURLs = false
@@ -10,10 +10,10 @@ ignoreFiles = [
 paginate = 10
 summaryLength = 20
 enableGitInfo = true
-title = "jzhao.xyz"
+title = "josephsemrai.com"
 
 [author]
-  name = "Jacky Zhao"
+  name = "Joseph Semrai"
 
 [markup]
     [markup.tableOfContents]

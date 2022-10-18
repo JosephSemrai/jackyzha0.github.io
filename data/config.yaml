@@ -1,4 +1,4 @@
-name: Jacky Zhao
+name: Joseph Semrai
 enableToc: false
 openToc: false
 enableLinkPreview: true
@@ -11,18 +11,18 @@ enableFooter: true
 enableContextualBacklinks: true
 enableRecentNotes: false
 enableGitHubEdit: true
-GitHubLink: https://github.com/jackyzha0/jackyzha0.github.io/tree/hugo/content
-enableSemanticSearch: true
-operandApiKey: "62ff9f9c-5230-4693-9a74-905b2a051460"
-description:
-  Welcome to my little island on the internet – I’m Jacky!
-  I’m curious about how we can better incentivize public goods funding, support better interactions with computers, and be more responsible stewards of technology.
-  I spend a lot of time here cultivating and building things I find interesting.
-  This is my personal digital garden and organizing system of sorts.
-page_title:
-  "jzhao.xyz"
+GitHubLink: https://github.com/josephsemrai/personal-hugo/tree/hugo/content
+# enableSemanticSearch: true
+# operandApiKey: "62ff9f9c-5230-4693-9a74-905b2a051460"
+description: Hi, I'm Joe. Welcome to a place where I store my notes and thoughts (every so often).
+  I’m curious about how to pursue the ethical use of advances in AI, the power of large language models & natural language processing, and how computers might change how we educate the next generation.
+  I love building things that I care about or find fun.
+  This is my personal digital garden and portfolio.
+page_title: "josephsemrai.com"
 links:
   - link_name: Twitter
-    link: https://twitter.com/_jzhao
+    link: https://twitter.com/josephsemrai
   - link_name: Github
-    link: https://github.com/jackyzha0
+    link: https://github.com/josephsemrai
+  - link_name: LinkedIn
+    link: https://www.linkedin.com/in/~joe/
