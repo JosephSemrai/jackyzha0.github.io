@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="&ldquo;It is the idealogy of Cartesian dualism in AI: where AI is narrowly understood as disembodied intelligence, removed from any relation to the material world."
+  />
+  <title>
+    Atlas of AI
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  <meta property="og:url" content="https://josephsemrai.com" />
+  <meta property="og:title" content="" /> <meta
+  property="og:description" content="" />
+  <meta property="og:image" content="https://josephsemrai.com/res/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@josephsemrai" />
+  <meta name="twitter:title" content=""> <meta name="twitter:description"
+  content="" />
+  <meta name="twitter:image" content="https://josephsemrai.com/res/og-card.png" />
+
+  
+     
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    
+    
+    href="https://josephsemrai.com//icon.png"
+  /> 
+
+  
+                        
+  <link href="https://josephsemrai.com/styles.3f792f95b046b8a6c4dbf66a4412e3d0.min.css" rel="stylesheet" />
+
+  
+  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link" />
+
+  
+     
+  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
+   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://unpkg.com/@floating-ui/core@0.7.3"></script>
+  <script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>
+  
+  <script src="https://josephsemrai.com/js/popover.53ad9a087e3feeaaa12b63bfd02d923b.min.js"></script>
+
+  
+   
+  <script src="https://josephsemrai.com/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js"></script>
+   
+
+  
+   
+  <script>
+    
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const lastVisit = localStorage.getItem('lastVisitTime')
+    const now = Date.now()
+    let show = 'true'
+    if (lastVisit) {
+      document.documentElement.setAttribute('visited', 'true')
+      const minElapsed = Math.ceil((now - parseInt(lastVisit)) / (1000 * 60))
+      show = (!isReducedMotion && minElapsed > 5) ? 'true' : 'false'
+    }
+    document.documentElement.setAttribute('show-animation', show)
+    localStorage.setItem('lastVisitTime', `${now}`)
+
+    const BASE_URL = "https://josephsemrai.com/"
+    const fetchData = Promise.all([
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.efa99fc23e91c5dd3ed94f616383b1ae.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.03879fa055a7ab82c6b3199ecfdff199.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      
+
+      
+      initPopover(
+        "https://josephsemrai.com",
+         true ,
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "https://josephsemrai.com",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":0.8,"opacityScale":3,"repelForce":2,"scale":1}
+          );
+
+        }
+      
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+   
+  <script type="module">
+    import { attachSPARouting } from "https:\/\/josephsemrai.com\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WDD4K02HML"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WDD4K02HML', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="https://josephsemrai.com/js/full-text-search.24827f874defbbc6d529926cbfcfb493.min.js"></script>
+
+
+
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script src="https://unpkg.com/cursor-chat"></script>
+
+<div class="singlePage">
+    
+    <header class="delay t-3">
+    <h1 id="page-title"><a href="https://josephsemrai.com/">josephsemrai.com</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+
+</header>
+
+
+    <article>
+      <h1>Atlas of AI</h1>
+      <p class="meta">
+        Last updated 
+Nov 14, 2021
+
+ 
+          
+<a href="https://github.com/josephsemrai/personal-hugo/tree/hugo/content/thoughts/Atlas%20of%20AI.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+    
+    <li><a href="https://josephsemrai.com/tags/seed/">Seed</a></li>
+    
+</ul>
+
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>&ldquo;It is the idealogy of Cartesian dualism in AI: where AI is narrowly understood as disembodied intelligence, removed from any relation to the material world.&rdquo; &ndash; they absorb and produce knowledge independently from their creators, infrastructures, and the world at large.</p>
+<p>&ldquo;To understand how AI is fundamentally political, we need to go beyond neural nets and statistical pattern recognition to instead ask <em>what</em> is being optimized, and <em>for whom</em>, and <em>who</em> gets to decide.&rdquo;</p>
+<p>&ldquo;As author and engineer Ellen Ullman puts it, this belief that the mind is like a computer, and vice versa, has infected decades of thinking in the computer and cognitive sciences,&rsquo; creating a kind of original sin for the field. It is the idealogy of Cartesian dualism in artificial intelligence: where AI is narrowly understood as disembodied intelligence, removed from any relation to the material world.&rdquo;</p>
+<p>&ldquo;An atlas is an unusual type of book. It is a collection of disparate parts, with maps that very in resolution from a satellite view of the planet to a zoomed-in detail of an archipelago. When you open an atlas, you may be seeking specific information about a particular place &ndash; or perhaps you are wandering, following your curiosity, and finding unexpected pathways and new perspectives.&rdquo;</p>
+<p>AI is an attempt to be <em>the</em> atlas &ndash; the dominant way of seeing the world. We should instead try to construct &ldquo;humble geography&rdquo; that acknowledges one&rsquo;s specific perspectives rather than claiming objectivity or mastery.</p>
+<p>&ldquo;In this sense, artificial intelligence is a registry of power&hellip; Computational reason and embodied work are deeply interlinked: AI systems both reflect and produce social relations and understanding of the world.&rdquo;</p>
+<a href="#hans-observer-expectancy-effect"><h2 id="hans-observer-expectancy-effect"><span class="hanchor" ariaLabel="Anchor"># </span>Hans: Observer-expectancy effect</h2></a>
+<p>&ldquo;Their intuition was right: the questioner&rsquo;s posture, breathing, and facial expression would subtly change around the moment Hans reached the right answer, prompting Hans to stop there.&rdquo;</p>
+<p>&ldquo;The story of Clever Hans is compelling from many angles: the relationship between desire, illusion, and action, the business of spectacles, how we anthropomorphize the nonhuman, how biases emerge, and the politics of intelligence.&rdquo;</p>
+<p>&ldquo;Even a system that appears to perform spectacularly in training can make terrible predictions when presented with novel data in the world.&rdquo;</p>
+<a href="#earth"><h2 id="earth"><span class="hanchor" ariaLabel="Anchor"># </span>Earth</h2></a>
+<p>&ldquo;Commerce follows the flag, but the flag follows the pick.&rdquo;</p>
+<p>&ldquo;Those who profit from mining do so only because the costsd must be sustained by others, those living and those not yet born. It is easy to put a price on precious metals, but what is the exact value of a wilderness, a clean stream, breathable air, the health of local communities?&rdquo;</p>
+<p>&ldquo;It was the &lsquo;move fast and break things&rsquo; of a different time&rdquo;</p>
+<p>&ldquo;The mines were located far from the city they enriched, and this remoteness allowed city dwellers to remain ignorant of what was happening to the mountains, rivers, and laborers that fed their fortunes.&rdquo;</p>
+<a href="#labour"><h2 id="labour"><span class="hanchor" ariaLabel="Anchor"># </span>Labour</h2></a>
+<p><em>Megamachine</em>: illustration of how all systems, no matter how immense, consist of the work of many individual human actors.</p>
+<p>Humans are increasingly treated like robots or the connective tissue between robots.</p>
+<p>
+
+
+
+
+
+<a
+  href="/thoughts/potemkin-village/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/potemkin-village/">Potemkin AI</a> systems are a form of deception perpetrated by technology vendors eager to stake a claim in the lucrative tech space. The difference between &lsquo;perceived&rsquo; ability and &lsquo;real&rsquo; ability of these AI system are augmented by human piecework.</p>
+<a href="#data"><h2 id="data"><span class="hanchor" ariaLabel="Anchor"># </span>Data</h2></a>
+<p>There is a new pervasive belief that everything is data and is there for the taking.</p>
+<p>Data, when aggregated, become 
+
+
+
+
+
+<a
+  href="/thoughts/infrastructure/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/infrastructure/">infrastructure</a>. &ldquo;The meaning or care that might be given to the image of an individual person, or the context behind a scene, is presumed to be erased at the moment it becomes part of an aggregate mass that will drive a broader system.&rdquo;</p>
+<p>ML systems work based on <em>inductive inference</em>. Any person who has taken a first-year course on logic will know the false conclusions that this can draw (e.g. all swans are white). Can we create systems that operate on <em>deductive inference</em>, which follows logically from a premise?</p>
+<p>&ldquo;Even the largest troves of data cannot escape the fundamental slippages that occur when an infinitely complex world is simplified and slices into categories.&rdquo; This is a process that requires inherently political, cultural, and social choices.</p>
+<p>&ldquo;Data systems allowed scientists during wartime to operate at a psychological distance from the people &lsquo;who would be maimed and killed by the weapons systems that would result from the ideas they communicated&rsquo;.&rdquo;</p>
+<a href="#recognition-systems"><h2 id="recognition-systems"><span class="hanchor" ariaLabel="Anchor"># </span>Recognition Systems</h2></a>
+<p>&ldquo;This is the danger of affect recognition tools. As we&rsquo;ve seen, they take us back to the phrenological past, where spurious claims were made, allowed to stand, and deployed to support existing systems of power.&rdquo;</p>
+<a href="#accountability"><h2 id="accountability"><span class="hanchor" ariaLabel="Anchor"># </span>Accountability</h2></a>
+<p>Andrew Ferguson: &ldquo;We are moving to a state where prosecutors and police are going to say &rsquo;the algorithm told me to do it, so I did, I had no idea what I was doing&rsquo;.&rdquo;</p>
+<p>A false objectivity, &ldquo;it&rsquo;s just math, math can&rsquo;t be biased, right?&rdquo; &ndash; where&rsquo;s the 
+
+
+
+
+
+<a
+  href="/thoughts/accountability/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/accountability/">accountability</a>?</p>
+<p>The historian of technology Alex Campolo calls this <em>enchanted determinism</em>: &ldquo;AI systems are seen as enchanted, beyond the known world, yet deterministic in that they discover patterns that can be applied with predictive certainty to everyday life.&rdquo;</p>
+
+
+    </article>
+    <hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+    
+      
+      
+      <li>
+        <a href="/books/" data-ctx="Atlas of AI" data-src="/books" class="internal-link">Booklist</a>
+      </li>
+      
+      
+      
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="https://josephsemrai.com/js/graph.abd4bc2af3869a96524d7d23b76152c7.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Joseph Semrai using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2022</p>
+        <ul>
+            
+            <li><a href="https://josephsemrai.com/">Home</a></li>
+            <li><a href="https://twitter.com/josephsemrai">Twitter</a></li><li><a href="https://github.com/josephsemrai">Github</a></li><li><a href="https://www.linkedin.com/in/~joe/">LinkedIn</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

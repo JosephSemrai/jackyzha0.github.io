@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="![[thoughts/images/consciousness-midjourney.png]]&ldquo;Bridging the explanatory gap from the other side&rdquo; @midjourney
+ An exploration into the [[thoughts/philosophy of science|philosophy of science]].
+ What is consciousness even?"
+  />
+  <title>
+    On Consciousness
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  <meta property="og:url" content="https://josephsemrai.com" />
+  <meta property="og:title" content="" /> <meta
+  property="og:description" content="" />
+  <meta property="og:image" content="https://josephsemrai.com/res/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@josephsemrai" />
+  <meta name="twitter:title" content=""> <meta name="twitter:description"
+  content="" />
+  <meta name="twitter:image" content="https://josephsemrai.com/res/og-card.png" />
+
+  
+     
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    
+    
+    href="https://josephsemrai.com//icon.png"
+  /> 
+
+  
+                        
+  <link href="https://josephsemrai.com/styles.3f792f95b046b8a6c4dbf66a4412e3d0.min.css" rel="stylesheet" />
+
+  
+  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link" />
+
+  
+     
+  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
+   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://unpkg.com/@floating-ui/core@0.7.3"></script>
+  <script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>
+  
+  <script src="https://josephsemrai.com/js/popover.53ad9a087e3feeaaa12b63bfd02d923b.min.js"></script>
+
+  
+   
+  <script src="https://josephsemrai.com/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js"></script>
+   
+
+  
+   
+  <script>
+    
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const lastVisit = localStorage.getItem('lastVisitTime')
+    const now = Date.now()
+    let show = 'true'
+    if (lastVisit) {
+      document.documentElement.setAttribute('visited', 'true')
+      const minElapsed = Math.ceil((now - parseInt(lastVisit)) / (1000 * 60))
+      show = (!isReducedMotion && minElapsed > 5) ? 'true' : 'false'
+    }
+    document.documentElement.setAttribute('show-animation', show)
+    localStorage.setItem('lastVisitTime', `${now}`)
+
+    const BASE_URL = "https://josephsemrai.com/"
+    const fetchData = Promise.all([
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.efa99fc23e91c5dd3ed94f616383b1ae.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.03879fa055a7ab82c6b3199ecfdff199.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      
+
+      
+      initPopover(
+        "https://josephsemrai.com",
+         true ,
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "https://josephsemrai.com",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":0.8,"opacityScale":3,"repelForce":2,"scale":1}
+          );
+
+        }
+      
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+   
+  <script type="module">
+    import { attachSPARouting } from "https:\/\/josephsemrai.com\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WDD4K02HML"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WDD4K02HML', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="https://josephsemrai.com/js/full-text-search.24827f874defbbc6d529926cbfcfb493.min.js"></script>
+
+
+
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script src="https://unpkg.com/cursor-chat"></script>
+
+<div class="singlePage">
+    
+    <header class="delay t-3">
+    <h1 id="page-title"><a href="https://josephsemrai.com/">josephsemrai.com</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+
+</header>
+
+
+    <article>
+      <h1>On Consciousness</h1>
+      <p class="meta">
+        Last updated 
+Apr 7, 2022
+
+ 
+          
+<a href="https://github.com/josephsemrai/personal-hugo/tree/hugo/content/posts/primacy-of-consciousness.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+    
+    <li><a href="https://josephsemrai.com/tags/fruit/">Fruit</a></li>
+    
+    <li><a href="https://josephsemrai.com/tags/PHIL451A/">PHIL451A</a></li>
+    
+</ul>
+
+      
+
+      
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+
+
+
+
+
+<p><img src="/thoughts/images/consciousness-midjourney.png" width="auto" /><em>&ldquo;Bridging the explanatory gap from the other side&rdquo; 
+
+<a href="https://www.midjourney.com/" rel="noopener">@midjourney</a></em></p>
+<blockquote>
+<p>An exploration into the <a href="/thoughts/philosophy-of-science" rel="noopener" class="internal-link" data-src="/thoughts/philosophy-of-science">philosophy of science</a>.</p>
+</blockquote>
+<p>What is consciousness even?</p>
+<p>For many, it is the ability to be human. To feel the warm of sunlight on our skin, to see the redness of sunset, to taste the crunch of a sweet apple, to love and be loved. Distilled, it is the ability to have subjective human experience.</p>
+<p>Philosophers in particular define consciousness as <em>experience</em>. Something is conscious if there is an experience to <em>be like that thing</em>. But there is a deeper question that philosophers have been digging at for the past few millennia: why should all of this experience <em>feel</em> like anything? How do we get from the physical act of feeling things in our environment to the mental experience of <em>being</em> human?</p>
+<p>This is the <a href="/thoughts/mind-body-problem" rel="noopener" class="internal-link" data-src="/thoughts/mind-body-problem">mind-body problem</a> and the fundamental question of the <a href="/thoughts/Hard-problem-of-consciousness" rel="noopener" class="internal-link" data-src="/thoughts/Hard-problem-of-consciousness">hard problem of consciousness.</a></p>
+<p>Ever since the turbulent events of the early 20th century, <strong>logical positivism</strong> had flowered. Logical positivism is a belief that scientific knowledge is the <em>only</em> kind of factual knowledge, discounting and pushing away the realm of <a href="/thoughts/metaphysics" rel="noopener" class="internal-link" data-src="/thoughts/metaphysics">metaphysics</a> to the sidelines. The question of consciousness was (and in many ways, still is) taboo to many philosophers and scientists alike, perceived as too &ldquo;new-age-y&rdquo; or metaphysical to be considered a worthwhile pursuit. Philosophers were encourage to &ldquo;earn their keep&rdquo; by providing actual contributions to science rather than musing about what it means to be human.</p>
+<p>As metaphysical questions about consciousness faded slowly, behaviourism found its footing through psychology. Behaviourists believed that the mind could be entirely understood purely by reducing it to its environmental inputs and behavioural outputs.</p>
+<p>To give them credit, many scientists found success through this approach. Scientists figured out how to correlate brain states with solving problems and even feelings of pain and pleasure. They figured out how activations in the V1 area of the cortex react to certain colours like the redness of an apple. Further physiological work discovered the existence of the V4-V8 areas which had an even stronger correlation with shapes, motion, and lighting conditions. The moonshot goal was to build up to a full <strong>neural correlate of consciousness</strong> or <a href="/thoughts/Neural-Correlates-of-Consciousness-NCC" rel="noopener" class="internal-link" data-src="/thoughts/Neural-Correlates-of-Consciousness-NCC">NCC</a> &ndash; some way of explaining what physical brain states correlate to mental ones.</p>
+<p>Yet, at the end of the day, all of this work only proved <em>correlation</em>. Behaviourist approaches were no closer to answering the question of how physical brain states <em>produce</em> mental ones. <strong>Any theory that attempted to explain consciousness in terms of the physical is forced to take no less than a leap of faith from the objectively physical to the subjectively mental.</strong> This leap is across what is known as the <a href="/thoughts/Hard-problem-of-consciousness#explanatory-gap" rel="noopener" class="internal-link" data-src="/thoughts/Hard-problem-of-consciousness">explanatory gap</a>.</p>
+<blockquote>
+<p>&ldquo;The mind-body problem is not just a local problem having to do with the relation between mind, brain, and behaviour in living animal organisms &hellip; it invades our understanding of the entire cosmos and its history.&rdquo; (Thomas Nagel, <em>Mind and Cosmos</em>)</p>
+</blockquote>
+<p>This isn&rsquo;t just a problem for philosophy or neuroscience but rather our <strong>entire understanding of the physical world</strong> &ndash; this is the blind spot of science.</p>
+<p><img src="/thoughts/images/explanatory-gap-midjourney.png" width="auto" /><em>&ldquo;Vector illustration of hands grasping at the explanatory gap&rdquo; @midjourney</em></p>
+<p>Scientific <a href="/thoughts/Materialism" rel="noopener" class="internal-link" data-src="/thoughts/Materialism">materialists</a> argue that science and the scientific method enables us to get &ldquo;outside of experience&rdquo; and grasp the world in and of itself. Yet, subjective experience is present at every step<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. When we look to send people to the cosmos, we do so by formulating theories and models about how we think they work. All of this depends on the subjective experience. We look at the results of our complex telescopes and formulate theories based off of what we have learned and have observed in the world. We pull scientific models from our experiments and observations but again, these are models and idealisations, not actual instantiations of <em>things</em> in the world.</p>
+<blockquote>
+<p>&ldquo;In principle, it is absurd to think that we can explain consciousness by reducing it to certain objects of science, since these objects are abstract relational structures extracted from the life-world of lived experience&rdquo; (Husserl, <em>The Crisis of the European Sciences and Transcendental Phenomenology</em>)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<p>Gottfried Leibniz, Immanuel Kant, Arthur Schopenhauer, and Bertrand Russel were all strong believers that a fully physical account of the world actually offers no explanation of the <em>intrinsic nature</em><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> of the things within it.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> The ideal gas law tells us how pressure, volume, amount, and temperature of a gas are all related to each other, but tells us nothing about what each of those things in and of themselves are. Chemistry tells us that Carbon has an atomic number of six. At first glance, this seems be an intrinsic property. But probe deeper at what an atomic number truly represents and all it is the number of protons it has. Protons themselves are not &ldquo;real&rdquo; things. They are a convenient model of how this group of abstractions we call quarks behaves together depending on their relations. Mass is a property that determines how an object will obey the relation $m = \frac{F}{a}$. Again, it is abstractions all the way down. Purely physical descriptions <strong>tell us not what matter <em>is</em> but what what it <em>does</em>.</strong></p>
+<p>Physics, by name, is supposed to be a mathematical theory of the physical. Yet mathematics by nature is purely relational; numbers are quantifiers on abstract objects, formulas describe precise relations between variables. But intuitively, there must also be an <em>intrinsic nature</em> to these objects as well. <em>What is an atom in and of itself?</em> This question is not answered by a relational account of the world.</p>
+<p>It is tempting to say at this point that perhaps a relational view all there is to reality. After all, this is realistically all that is useful to the functioning of society. It has enabled us to program silicon, photograph the depths of the universe, and predict weather across the world.</p>
+<p>Yet intuitively, a world held up purely through relations does not make sense. As Hedda Hassel Mørch pointed out in her critique of physics for ignoring consciousness, &ldquo;for there to be a relation there must be two things being related.&rdquo; <sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> Otherwise, the relationship is empty &ndash; &ldquo;a show that goes on without performers, or a castle constructed out of thin air.&rdquo; Mørch argues that all physical relations should be made real by some substance that itself is not purely relational or else there would be no difference between mere mathematical abstraction and the concrete universe.</p>
+<p>Clearly, if we wish to poke beyond this veil of pure abstractions, our current explanations of our reality will not do: intrinsic natures simply cannot be captured through a purely physical approach. <a href="/thoughts/Materialism" rel="noopener" class="internal-link" data-src="/thoughts/Materialism">Materialism</a> as given so far does not seem to stand. Taking its physical description as the totality is like <strong>confusing the map with the territory.</strong> It may be fine if you just need the map to navigate the world, but to open one&rsquo;s eyes to the real world, we must dig deeper.</p>
+<p>We thus try to <strong>bridge the explanatory gap from the other side</strong>. Perhaps consciousness is fundamental to reality, not the other way around.</p>
+<p><img src="/thoughts/images/life-world-ghibli.png" width="auto" /><em>&ldquo;The life-world contains the universe&rdquo; illustrated in the style of Studio Ghibli @midjourney</em></p>
+<p>Up until this point, I have painted a picture of why the intrinsic nature of consciousness cannot be fully explained by the physical. Now, I push to make a stronger claim that consciousness is <strong>primary</strong> &ndash; namely existentially, transcendentally, and epistemologically. For something to be primary is for it to be the first and foremost, a prior for all else that comes after it.</p>
+<p>It seems almost self-evident that consciousness is <strong>existentially primary</strong> &ndash; it is through the subjective human experience that the universe is disclosed to us. Arthur Eddington argued that the one thing we know concretely about consciousness is that it has an intrinsic nature.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> <a class="internal-link broken">René Descartes</a> famously said &ldquo;cogito, ergo sum&rdquo;: I think, therefore I am.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> It is the foundation upon which Descartes builds upon his certainty in his knowledge about the world. In all the ways we can be mistaken about reality, consciousness is not one of them &ndash; it is a reality that we apprehend directly and without inference. Thus, consciousness is existentially primary.</p>
+<p>Consciousness is also <strong>transcendentally primary</strong>. Kant defined transcendental primacy as all knowledge which is &ldquo;occupied not so much with objects as with the mode of our knowledge of objects in so far as this mode of knowledge is to be possible a priori.&rdquo; <sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup> In more colloquial language, the transcendental primacy of consciousness refers to how consciousness is not another object of knowledge, but that by which any object can become <em>knowable</em>.</p>
+<p>Edmund Husserl, in his 1936 work <em>The Crisis of European Sciences and Transcendental Phenomenology,</em> defines a concept called the <em>life-world</em>. Roughly defined, it refers to the world as it is collectively experienced. Husserl likened this model of consciousness to our visual horizon: it is not really an object, but a rather a process of uncovering or displaying potentialities.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>It is in this way then that the horizonal sense of consciousness is not something that can be <em>had,</em> but rather something we <em>live</em>. Quoting Bertrand Russel, &ldquo;we know nothing about the intrinsic quality of physical events except when these are mental events that we directly experience.&rdquo;<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup> As such, consciousness is transcendentally primary.</p>
+<p>
+
+
+<img src="https://josephsemrai.com//thoughts/images/Merleau-Ponty%20on%20the%20world%20and%20consciousness.png" width="auto" alt="Merleau-Ponty on the world and consciousness"  /><em>Merleau-Ponty on the world and consciousness</em></p>
+<p>Consciousness is additionally <strong>epistemically primary</strong> &ndash; it is the source and destination of all knowledge. In creating models, we set aside aspects of experience on which we have doubts about (e.g. our senses, emotions, etc.) and extract idealised and abstract models (e.g. mathematics, physics, logic). Even the most abstract physical relation or mathematical formulas describe some &ldquo;real&rdquo; thing we are trying to model or express a relation between. These models ideals and models are only as useful insofar as we can implement these abstractions as things we can use to measure, predict, and control phenomena within our lived experience. In this way, consciousness is epistemically primary.</p>
+<p>I will pause here to clarify that I am <em>not</em> claiming consciousness to be ontologically primary. I am not making any sort of <a href="/thoughts/Panpsychism" rel="noopener" class="internal-link" data-src="/thoughts/Panpsychism">panpsychist claim</a> that consciousness exists as a fundamental aspect of reality where everything has a small amount of consciousness.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup> Neither am I claiming that consciousness exists inherently in the natural world as a fundamental aspect of reality.<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></p>
+<p>Rather, I am positing a form of <strong>neutral monism</strong> that sits somewhere between physicalism and idealism. Monism, in its simplest form, suggests that there is only one <em>kind</em> of underlying reality. A neutral stance on this does not side with either matter or mind, instead a potential 3rd substance. Russel explained this form of reality as having &ldquo;a single underlying nature that is <em>neither</em> mental nor physical but capable of being expressed in these two different ways.&rdquo;<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>  Much like the interiors and exterior of any object, Russel&rsquo;s account of the mental and physical imply and necessitate each other as reflection of a single nature.</p>
+<p>In Husserl&rsquo;s horizon metaphor, the horizon is not possible without a world to be observed but the world also cannot be perceived without a perceiver. Similarly, the horizon of consciousness is not possible without the physical but the the physical cannot be perceived without the mental. It is absurd to try to reduce one completely to another.</p>
+<p>Francisco Varela&rsquo;s notion of &ldquo;mutually generative constraints,&rdquo;<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup> points toward a possibility where both physicalism and idealism work together towards reciprocal enrichment:</p>
+<ol>
+<li>Phenomenological reports may help to pick out and ascribe meaning to previously unnoticed neural configurations</li>
+<li>Neurological findings may become an incentive for re-categorization and further development in phenomenological research</li>
+</ol>
+<p>This neutrally monistic view of consciousness does not &ldquo;solve&rdquo; the hard problem. Rather, the problem never even arises because the physical world is no longer the standard for being, and objectivity is no longer the ultimate standard of being.</p>
+<p>It is in this neutrally monistic view that one can acknowledge consciousness as primary without necessarily needing to discount our existing objective knowledge about the world.</p>
+<p>Instead of absorbing or reducing contents of experience into the relational network of objective science or vice versa, we could strive towards embedding these experiences within a broader network of a potentially new amplified science of structures which we may not know of yet.</p>
+<p><em>Adapted version of my <a href="/thoughts/Primary-of-Consciousness" rel="noopener" class="internal-link" data-src="/thoughts/Primary-of-Consciousness">PHIL451A final paper</a>.</em></p>
+<p><img src="/thoughts/images/observatory-midjourney.png" width="auto" /><em>&ldquo;A beautiful observatory in the park of Mars&rdquo; in the style of James Paik and Ross Tran @midjourney</em></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>The upshot is that there is no simple way to remove our experience as scientists from the characterization of the physical world. In Popperian fashion, scientific knowledge then is a self-correcting narrative made from the world and our experience of it evolving together. Popper personally rejected logical positivism as well. He believe that there are statements that have varying statements of &rsquo;truth&rsquo; or <a href="/thoughts/truth#verisimilitude" rel="noopener" class="internal-link" data-src="/thoughts/truth">verisimilitude</a> relative to our conscious experience of the world.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Husserl, E., 1936, <em>The Crisis of the European Sciences and Transcendental Phenomenology</em>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>In philosophy, an intrinsic property is a property that an object has in and of itself, whereas extrinsic properties are properties than depend on that object&rsquo;s relation with other things.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>Kant, Immanuel, 1787, <em>Critique of Pure Reason</em>. Leibniz, Gottfried Wilhelm, 1686, <em>Discours de métaphysique</em> (<em>Discourse on Metaphysics</em>), G, IV. Schopenhauer, Arthur, 1818, <em>Die Welt als Wille und Vorstellung</em>. Russel, Bertrand, 1959, <em>My Philosophical Development</em>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p><em>Is Matter Conscious?</em> in 
+
+<a href="https://nautil.us/is-matter-conscious-6028/" rel="noopener">Nautilus</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>Eddington, A., 1928, <em>The Nature of the Physical World,</em>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p>Descartes, R., 1641, <em>Meditations on first philosophy</em>, Meditation II&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8" role="doc-endnote">
+<p>Kant, I., 1787, <em>Critique of Pure Reason</em> A295/B352&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9" role="doc-endnote">
+<p>Russel, B., 1959, <em>My Philosophical Development</em>&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10" role="doc-endnote">
+<p>In fact, I think there are quite a few problems in panpsychist theories, namely <a href="/thoughts/Consciousness-is-not-Information" rel="noopener" class="internal-link" data-src="/thoughts/Consciousness-is-not-Information">how theories like Giulio Tononi&rsquo;s IIT define information</a> and how they fail to adequately resolve <a href="/thoughts/emergent-behaviour#combination-problem" rel="noopener" class="internal-link" data-src="/thoughts/emergent-behaviour">the Combination Problem</a>. The typical <a href="/thoughts/Panpsychism" rel="noopener" class="internal-link" data-src="/thoughts/Panpsychism">panpsychist</a> response would be to agree that consciousness could never emerge from exclusively physical processes and that consciousness exists as a fundamental aspect of reality (often referred to as the Intrinsic Nature Argument). One of the original arguments for panpsychism posited by Eddington, Russell, Strawson relies on quite a few problem assumptions (namely, that &ldquo;relational properties are determined by intrinsic properties&rdquo; and &ldquo;own inner awareness reveals that phenomenality is an intrinsic property&rdquo;). A more modern form of this argument crops up in IIT and has been widely lauded as influential in finally providing a testable hypothesis of consciousness. However, Tononi defines information in very atypical fashion and refuses to address potential edge cases in which integrated information of seeming non-conscious objects (e.g. a large number of connected logic gates which do not compute anything meaningful) is unreasonably high (and potentially infinite).&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11" role="doc-endnote">
+<p>The position of ontological idealism explores this further, positing it is fundamentally human consciousness that gives rise to the physical world. This is not a new idea, having being explored in both Eastern thought (through <a href="/thoughts/idealism#pratyabhijna-self-awareness" rel="noopener" class="internal-link" data-src="/thoughts/idealism">Pratyabhijna self-awareness</a>) and Western thought (platonic idealism).&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12" role="doc-endnote">
+<p>Russel, B., 1919, “On Propositions: What They Are and How They Mean”, <em>Proceedings of the Aristotelian Society</em>, Supplementary Volume 2: 1–43. pp. 283–321.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13" role="doc-endnote">
+<p>Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of consciousness studies</em>, <em>3</em>(4), 330-349.&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+
+    </article>
+    <hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="https://josephsemrai.com/js/graph.abd4bc2af3869a96524d7d23b76152c7.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Joseph Semrai using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2022</p>
+        <ul>
+            
+            <li><a href="https://josephsemrai.com/">Home</a></li>
+            <li><a href="https://twitter.com/josephsemrai">Twitter</a></li><li><a href="https://github.com/josephsemrai">Github</a></li><li><a href="https://www.linkedin.com/in/~joe/">LinkedIn</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="Summary Design Justice focuses not just on design in the visual and aesthetic sense, but also on the design of systems."
+  />
+  <title>
+    Design Justice
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  <meta property="og:url" content="https://josephsemrai.com" />
+  <meta property="og:title" content="" /> <meta
+  property="og:description" content="" />
+  <meta property="og:image" content="https://josephsemrai.com/res/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@josephsemrai" />
+  <meta name="twitter:title" content=""> <meta name="twitter:description"
+  content="" />
+  <meta name="twitter:image" content="https://josephsemrai.com/res/og-card.png" />
+
+  
+     
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    
+    
+    href="https://josephsemrai.com//icon.png"
+  /> 
+
+  
+                        
+  <link href="https://josephsemrai.com/styles.3f792f95b046b8a6c4dbf66a4412e3d0.min.css" rel="stylesheet" />
+
+  
+  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link" />
+
+  
+     
+  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
+   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://unpkg.com/@floating-ui/core@0.7.3"></script>
+  <script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>
+  
+  <script src="https://josephsemrai.com/js/popover.53ad9a087e3feeaaa12b63bfd02d923b.min.js"></script>
+
+  
+   
+  <script src="https://josephsemrai.com/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js"></script>
+   
+
+  
+   
+  <script>
+    
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const lastVisit = localStorage.getItem('lastVisitTime')
+    const now = Date.now()
+    let show = 'true'
+    if (lastVisit) {
+      document.documentElement.setAttribute('visited', 'true')
+      const minElapsed = Math.ceil((now - parseInt(lastVisit)) / (1000 * 60))
+      show = (!isReducedMotion && minElapsed > 5) ? 'true' : 'false'
+    }
+    document.documentElement.setAttribute('show-animation', show)
+    localStorage.setItem('lastVisitTime', `${now}`)
+
+    const BASE_URL = "https://josephsemrai.com/"
+    const fetchData = Promise.all([
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.efa99fc23e91c5dd3ed94f616383b1ae.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.03879fa055a7ab82c6b3199ecfdff199.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      
+
+      
+      initPopover(
+        "https://josephsemrai.com",
+         true ,
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "https://josephsemrai.com",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":0.8,"opacityScale":3,"repelForce":2,"scale":1}
+          );
+
+        }
+      
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+   
+  <script type="module">
+    import { attachSPARouting } from "https:\/\/josephsemrai.com\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WDD4K02HML"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WDD4K02HML', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="https://josephsemrai.com/js/full-text-search.24827f874defbbc6d529926cbfcfb493.min.js"></script>
+
+
+
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script src="https://unpkg.com/cursor-chat"></script>
+
+<div class="singlePage">
+    
+    <header class="delay t-3">
+    <h1 id="page-title"><a href="https://josephsemrai.com/">josephsemrai.com</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+
+</header>
+
+
+    <article>
+      <h1>Design Justice</h1>
+      <p class="meta">
+        Last updated 
+Jun 16, 2021
+
+ 
+          
+<a href="https://github.com/josephsemrai/personal-hugo/tree/hugo/content/thoughts/Design%20Justice.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+    
+    <li><a href="https://josephsemrai.com/tags/seed/">Seed</a></li>
+    
+</ul>
+
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+
+
+
+
+
+<a href="#summary"><h2 id="summary"><span class="hanchor" ariaLabel="Anchor"># </span>Summary</h2></a>
+<p>Design Justice focuses not just on design in the visual and aesthetic sense, but also on the design of systems.</p>
+<p>To quote from the book, &ldquo;Design justice rethinks design processes, centers people who are normally marginalized by design, and uses collaborative, creative practices to address the deepest challenges our communities face.&rdquo; The norms, values, and assumptions that are encoded and reproduced in the <em>design</em> of systems can be changed by rethinking our design processes.</p>
+<p>In less than 400 short pages, Sasha Costanza-Chock covers a breadth of topics ranging from intersectionality, bias, and universal design to maintenance, design sites, and technosolutionism &ndash; all through detailed case studies of real-world design practices and social movements.</p>
+<p>She guides the reader into how the &lsquo;unmarked user&rsquo; and universal design erases certain groups of people within the matrix of domination (through ableist, eurocentric, and classist assumptions) and refutes the argument that &lsquo;design by committee produces mediocrity.&rsquo;</p>
+<p>Design Justice is a book that invites us to &ldquo;center people who are too often marginalized by design&rdquo;. More importantly, it urges us to work towards an equitable world for everyone: one which treats design justice not as a funnel that we use to limit ourselves to a minimal set of supposedly universal design choices, but rather as a prism through which to generate a far wider rainbow of possible choices, each better tailored to reflect the needs of a specific group of people.</p>
+<a href="#reflection"><h2 id="reflection"><span class="hanchor" ariaLabel="Anchor"># </span>Reflection</h2></a>
+<p>Design sites are valorized as places of learning, making, and building and the intersection of social movements and the counterculture. Why then, have they become increasingly corporate places of extraction of free labour?</p>
+<p>This cooptation of 
+
+
+
+
+
+<a
+  href="/thoughts/Hackers/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/Hackers/">hacker</a> culture, hackathons as design sites in particular, by neoliberalism has been on the back of my mind ever since reading the chapter on design sites in Design Justice. As someone who first got their footing in computer science through hackathons, it pains me to see that this is the rep that hackathons have slowly gotten over time, moving from safe spaces for idea exploration to increasingly corporate, time-bound, events where hackers spin up apps to test company products in exchange for the slim chance of winning prizes and recognition.</p>
+<p>Hackathons reshape precarious and unpaid work. Writing code and building apps for free becomes an extraordinary opportunity and a collective imagination for fictional expectations of innovation that benefits all. Do we so necessarily need to tie these rituals of play in building and tinkering to the recruiting and product testing pipeline for large corporations?</p>
+<p>As a hackathon organizer, Design Justice has helped me to more actively think about what hackathons are trying to motivate. Having more of the tools to articulate and locate exactly why hackathons have felt increasingly corporate is the first step to reinstate hackathons as third spaces not as places of creation or competition, but as places of play and exploration.</p>
+<a href="#quotes"><h2 id="quotes"><span class="hanchor" ariaLabel="Anchor"># </span>Quotes</h2></a>
+<a href="#defining-design-justice"><h3 id="defining-design-justice"><span class="hanchor" ariaLabel="Anchor"># </span>Defining Design Justice</h3></a>
+<p>How larger systems &ndash; including norms, values, and assumptions &ndash; are encoded in and reproduced through the design of sociotechnical systems. (
+
+
+
+
+
+<a
+  href="/thoughts/Do-Artifacts-Have-Politics/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/Do-Artifacts-Have-Politics/">Do Artifacts Have Politics</a>)</p>
+<p>Design justice rethinks design processes, centers people who are normally marginalized by design, and uses collaborative, creative practices to address the deepest challenges our communities face</p>
+<p>Design justice is a framework for analysis of how design distributes benefits and bridges between various groups of people.</p>
+<p>Design (noun): A plan or scheme conceived in the mind and intended for subsequent execution; the preliminary conception of an idea that is to carried into effect by action; a project. (Oxford English Dictionary)</p>
+<p>True, everyone designs, but only certain kinds of design work are acknowledged, valorized, remunerated, and credited. Though all humans design, not everyone gets paid to do so.</p>
+<p><em>Affordance</em> refers to &ldquo;the perceived and actual properties of the thing, primarily those fundamental properties that determine just how the thing could possibly be used.&rdquo; &hellip; An object&rsquo;s affordances are never equally perceptible to all, and never equally available to all.</p>
+<a href="#on-intersectionality"><h3 id="on-intersectionality"><span class="hanchor" ariaLabel="Anchor"># </span>On Intersectionality</h3></a>
+<p>Black women workers at GM were told they had no legal grounds for a discrimination case against their employer because antidiscrimination law only protected single-identity categories.</p>
+<p>The concept of intersectionality provided the grounds for a long, slow paradigm shift that is still unfolding in the social sciences, in legal scholarship, and in other domains of research and practice.</p>
+<p>While there is rapidly growing interest in algorithmic bias audits, especially in the fairness, accountability, and transparency in machine learning (FAT*) community, most are single-axis: they look for a biased distribution of error rates only according to a single variable, such as race or gender.</p>
+<p>One question about [intersectional approaches] is how many identity variables to include because each adds complexity (and, in many situations, time and cost) to audits.</p>
+<a href="#universal-design"><h3 id="universal-design"><span class="hanchor" ariaLabel="Anchor"># </span>Universal Design</h3></a>
+<p>Universal Design (UD) as defined by Center for UD at North Carolina State University: The design of products and environment to be usable by all people, to the greatest extent possible, without the need for adaptation or specialized design</p>
+<p>At least in the digital domain, adaptive design that enables personalization and flexible configuration of shared core objects, tools, platforms, and systems provides a path out of the tension between the diverse needs of individual users and the economic advantages of a large-scale user base.</p>
+<p>Universalization erases difference and produces self-reinforcing spirals of exclusion, but personalized and culturally adaptive systems too often are deployed in ways that reinforce 
+
+
+
+
+
+<a
+  href="/thoughts/Data-Capitalism/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/Data-Capitalism/">surveillance capitalism</a>.</p>
+<p>We should destabilize the underlying assumption that what is best for the majority of users is best for <em>all</em> users.</p>
+<a href="#the-unmarked-user"><h3 id="the-unmarked-user"><span class="hanchor" ariaLabel="Anchor"># </span>The Unmarked User</h3></a>
+<p>Designers most frequently assume that the unmarked user has access to several very powerful privileges, such as US citizenship, English language proficiency, access to broadband internet, a smartphone, a normatively abled body, and so on.</p>
+<p>For broader reasons of structural inequality, the universe of real-world users falls within a limited range compared to the full breadth of <em>potential</em> users, then 
+
+
+
+
+
+<a
+  href="/thoughts/human-centered-design/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/human-centered-design/">user-centered design</a> reproduces exclusion by centering their needs.</p>
+<a href="#disability-simulation"><h3 id="disability-simulation"><span class="hanchor" ariaLabel="Anchor"># </span>Disability Simulation</h3></a>
+<p>These &lsquo;simulations&rsquo; produce an unrealistic understanding of the life experience of disability for a number of reasons: the nondisabled person does not have the alternate skill sets developed by [disabled people], and thus overestimates the loss of function which disability presents, and is furthermore likely to think of able-normative solutions rather than solutions more attuned to a [disabled person&rsquo;s] life experience</p>
+<p>Disability simulation is discredited; lived experience is nontransferable. &ldquo;Don&rsquo;t start by building a new table; start by coming to the table&rdquo;</p>
+<a href="#dismantling-existing-systems"><h3 id="dismantling-existing-systems"><span class="hanchor" ariaLabel="Anchor"># </span>Dismantling Existing Systems</h3></a>
+<p>i.e. what&rsquo;s wrong with colour blindness</p>
+<p>&ldquo;Under this new rhetoric of colour-blindness, equality means treating all individuals the same, regardless of differences they brought with them due to the effects of past discrimination or even discrimination in other venues&rdquo;</p>
+<p>New Jim Code
+Algorithmic decision systems based on historical data sets reinforce white supremacy and discrimination even as they are positioned by their designers as &ldquo;fair&rdquo;</p>
+<p>Racial hierarchies can only be dismantled by actively antiracist systems design, not by pretending they don&rsquo;t exist.</p>
+<p>Far too often, user personas are created out of thin air by members of the design team, based on their own assumption or stereotypes about groups of people. When this happens, user personas are literally objectified assumptions about end users.</p>
+<a href="#maintenance"><h3 id="maintenance"><span class="hanchor" ariaLabel="Anchor"># </span>Maintenance</h3></a>
+<p>
+
+
+
+
+
+<a
+  href="/thoughts/creation-vs-maintenance/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/creation-vs-maintenance/">Creating new vs maintaining old</a></p>
+<ul>
+<li>Contributing to an existing project requires contacting and negotiating with the existing developers, maintainers, and community. Creating something new produces attribution, credit, and visibility for its developers, whereas attribution, credit, and visibility for participating in an existing project must, at the very least, be shared.</li>
+<li>Support 
+
+
+
+
+
+<a
+  href="/thoughts/maintenance/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/maintenance/">Maintenance</a>, not just &ldquo;innovation.&rdquo; Significant resources are necessary to maintain and improve existing movement tech, but most focus is on the creation of new projects.</li>
+</ul>
+<p>&ldquo;Those of us working to promote universal access to clean water and sanitation must keep our eyes not just on the competition and prizes, but on the less glamorous work of encouraging adoption, usage, and maintenance&rdquo;</p>
+<a href="#technosolutionismtechnochauvinism"><h3 id="technosolutionismtechnochauvinism"><span class="hanchor" ariaLabel="Anchor"># </span>Technosolutionism/Technochauvinism</h3></a>
+<p>New technology will save us!!</p>
+<p>An exclusionary and elitist understanding of what technology is and where it comes from and a lack of interest in preexisting, community-based design practices.</p>
+<p>&ldquo;&hellip; where we are wholly dependent on a handful of extraordinarily gifted entrepreneurs to lead us out of the dark ages. This is a myth.&rdquo;</p>
+<p>First, it contains a somewhat masked normative assumption that &ldquo;technology adoption&rdquo; is always a good thing.</p>
+<p>Neoliberal, technocentric ideas about the city as a machine or as a software system waiting to be optimized have become increasingly prominent. Citizens should not be reduced to users through the lens of neoliberal governmentality.</p>
+<p>First consider what already works at the community level, and to steer students away from the pitfalls of tech solutionism and technochauvanism</p>
+<a href="#attention"><h3 id="attention"><span class="hanchor" ariaLabel="Anchor"># </span>Attention</h3></a>
+<p>Mediated visibility has become an important form of capital. Attention (time) is a scarce resource within late-stage informational capitalism, and its allocation has significant symbolic and material impacts (this is the 
+
+
+
+
+
+<a
+  href="/thoughts/attention-economy/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/attention-economy/">Attention economy</a>).</p>
+<p>&ldquo;Design challenges&rdquo; in which dozens, sometimes hundreds, of people do free labour and submit ideas in hopes that they&rsquo;ll be the lucky one chosen to receive visibility, recognition, and possibly even compensation.</p>
+<a href="#design-sites"><h3 id="design-sites"><span class="hanchor" ariaLabel="Anchor"># </span>Design Sites</h3></a>
+<p>Tracing the cooptation of hacker culture by neoliberalism</p>
+<p>Invisibility of subaltern communities may also be strategic. Sometimes, they shield their practices and innovations from mainstream visibility to avoid incorporation and appropriation.</p>
+<p>&ldquo;Alternative spaces and forms of living provided interesting ideas could be milked and marketed. So certain structural features of these &lsquo;indie&rsquo; movement outputs were suddenly highly acclaimed, applied, and copy-pasted into capitalist developing laboratories&rdquo; (
+
+
+
+
+
+<a
+  href="/thoughts/Post-It-Note-City/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/Post-It-Note-City/">Post-It Note City</a>)</p>
+<p>Hackerspaces in the European context, which they describe as originally being &ldquo;third spaces&rdquo; outside of the logic of both the communist state and the capitalist market.</p>
+<p>The assumption that making sites &ldquo;open&rdquo; makes them inclusive, without specifically addressing race, class, gender, and/or disability dynamics, is common to many privileged design sites.</p>
+<p>Many who are active in these design sites feel themselves to be participants in <em>commons-based peer production,</em> or &ldquo;decentralized, collaborative, and non-proprietary; base on sharing resources and outputs among widely distributed, loosely connected individuals who cooperate with each other without relying on either market signals or managerial commands&rdquo;</p>
+<p>Without intentional intervention, these spaces find it very difficult to fulfil even their own liberal democratic rhetoric because they end up dominated by white cis men and by middle-class people with free time and disposable income.</p>
+<p>More on hackathons: 
+
+
+
+
+
+<a
+  href="/posts/hackathons/"
+  rel="noopener" class="internal-link"
+  data-src="/posts/hackathons/">hackathons</a></p>
+<a href="#hackathons-the-bad"><h4 id="hackathons-the-bad"><span class="hanchor" ariaLabel="Anchor"># </span>Hackathons: The Bad</h4></a>
+<p>Hackathons are understood by corporate managers as potentially effective ways to identify new talent, and therefore as a possible mechanism in the tech sector hiring pipeline.</p>
+<p>&ldquo;Hackathons, time-bounded events where participants write computer code and build apps, have become a popular means of socializing tech students and workers to produce &lsquo;innovation&rsquo; despite little promise of material reward&hellip; [they] reshape unpaid and precarious work as an extraordinary opportunity, a ritual of ecstatic labour, and a collective imaginary for fictional expectations of innovation that benefits all, a powerful strategy for manufacturing works&rsquo; consent in the &rsquo;new&rsquo; economy.&rdquo; (Sharon Zukin and Max Papadantonakis)</p>
+<p>Hackathons provide excellent opportunities for the extraction of free labour.</p>
+<p>The assumption that a &ldquo;hackathon for good&rdquo; will be successful if it produces a new app that can help &ldquo;solve&rdquo; a social problem runs deep.</p>
+<p>Hackathons nearly always focus on problems and rarely build on existing community assets; and people thing hackathons can do things that they usually can&rsquo;t, such as solve big or even little problems, create new products overnight, or &rsquo;level the playing field&rsquo; of innovation through meritocracy. &ldquo;A one day hack for homelessness takes away from the complexity of social justice issues. &hellip; You can&rsquo;t just come up with an app and solve the world&rsquo;s problems&rdquo;</p>
+<p>&ldquo;Hackathon spaces cultivate a culture that marginalizes hackers with specific needs, including but not limited to women, people with disabilities, people with non-traditional backgrounds, and even individuals with specific dietary restrictions. By consistently ignoring the health, diet, and care needs of diverse attendees, along with needs based on skill, class, and gender identities, hackathons create an exclusive and hostile environment.&rdquo;</p>
+<a href="#hackathons-the-good"><h4 id="hackathons-the-good"><span class="hanchor" ariaLabel="Anchor"># </span>Hackathons: The Good</h4></a>
+<p>They are often crucibles of intense and focused learning, making, problem-solving, community building, and play.</p>
+<p>&ldquo;In the old days people used to form teams and rush in and try to fix things, without really even knowing what was broken &hellip; it is no longer just a bunch of programmers in a room. There are now hackathons where actual community members are learning to code and interacting. &hellip; Community members are also teaching programmers about the things they need to sustain and build for the future. That&rsquo;s a really good thing happening&rdquo;</p>
+<p>Such hackathons push hackers to reflect on why they are doing the work they do, push for the ideas and welfare of marginalized communities in the tech sphere, and do so on the terms of their wellbeing and safety.</p>
+<p>Organizers should pay attention to participants as whole human beings. For example, this means that it is important to consider food, bio breaks, accessible bathrooms that are friendly to all body types and genders, comfortable spaces to nap or relax, and decent lighting, etc.</p>
+<a href="#design-justice-pedagogies"><h3 id="design-justice-pedagogies"><span class="hanchor" ariaLabel="Anchor"># </span>Design Justice Pedagogies</h3></a>
+<p>&ldquo;Critical pedagogy, where the role of the educator is to pose problems, create spaces for the collective development of critical consciousness, help to develop plans for action to make the world a better place, and develop a sense of agency among learners&rdquo;</p>
+<p>&ldquo;No one knows everything, but together we know a lot, if we listen to each other&rdquo;</p>
+<p>Key elements</p>
+<ul>
+<li>Teach data science in a way that honours context, respects situated knowledge, and makes it clear that data is never &ldquo;raw&rdquo;.</li>
+<li>Emphasize the user of data to create shared meaning over individual mastery.</li>
+<li>Teach data science that values not only reason, but <a href="/thoughts/ethics" rel="noopener" class="internal-link" data-src="/thoughts/ethics">ethics</a> and emotions as well</li>
+</ul>
+<a href="#critiques"><h3 id="critiques"><span class="hanchor" ariaLabel="Anchor"># </span>Critiques</h3></a>
+<p>&ldquo;Design by committee produces mediocrity&rdquo; or &ldquo;we don&rsquo;t want to end up with the lowest-common-denominator design!&rdquo;</p>
+<p>It&rsquo;s true that design justice practitioners have to take care that critique does not become our primary activity; an overemphasis on testing, evaluation, and critique can indeed be ultimately disempowering. At the same time, explicit critique paired with alternative proposals can be very productive.</p>
+<p>Design justice doesn&rsquo;t imply that we must somehow reduce our options to only those that satisfy all accessibility criteria for the most marginalized within the matrix of domination. It is not meant to be a <em>filter</em> that we use to eliminate most design possibilities from consideration because they fail an accessibility checklist. In fact, design justice as a framework is meant to do the opposite: to act not as a funnel that we use to limit ourselves to a minimal set of supposedly universal design choices, but rather as a prism through which to generate a far wider rainbow of possible choices, each better tailored to reflect the needs of a specific group of people.</p>
+
+
+    </article>
+    <hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      <li>
+        <a href="/books/" data-ctx="Design Justice" data-src="/books" class="internal-link">Booklist</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/posts/bias-bug/" data-ctx="design for everyone" data-src="/posts/bias-bug" class="internal-link">On AI&#39;s &#39;Bias Bug&#39;</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/posts/hackathons/" data-ctx="Design Justice" data-src="/posts/hackathons" class="internal-link">Hacking the Hackathon</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/A-City-is-not-a-Computer/" data-ctx="Design Justice" data-src="/thoughts/A-City-is-not-a-Computer" class="internal-link">A City is not a Computer</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/Mindstorms/" data-ctx="Design Justice" data-src="/thoughts/Mindstorms" class="internal-link">Mindstorms</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/To-Live-in-their-Utopia/" data-ctx="Disability simulation" data-src="/thoughts/To-Live-in-their-Utopia" class="internal-link">To Live in their Utopia</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/Unrepeatable-Miracle-of-Silicon-Valley/" data-ctx="diversity problems" data-src="/thoughts/Unrepeatable-Miracle-of-Silicon-Valley" class="internal-link">Silicon Valley: An unrepeatable miracle?</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/bias/" data-ctx="Design Justice" data-src="/thoughts/bias" class="internal-link">Bias</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/constructionist/" data-ctx="Design Justice" data-src="/thoughts/constructionist" class="internal-link">Constructionism</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/desktop-metaphor/" data-ctx="design justice" data-src="/thoughts/desktop-metaphor" class="internal-link">Desktop Metaphor</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/introductions/" data-ctx="Design Justice" data-src="/thoughts/introductions" class="internal-link">Introductions</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/play/" data-ctx="Design Justice" data-src="/thoughts/play" class="internal-link">Play</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/public-goods/" data-ctx="design justice" data-src="/thoughts/public-goods" class="internal-link">Public Goods</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/user-involvement/" data-ctx="participatory design" data-src="/thoughts/user-involvement" class="internal-link">User Involvement</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/workflows/" data-ctx="universal design" data-src="/thoughts/workflows" class="internal-link">Workflows</a>
+      </li>
+      
+      
+      
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="https://josephsemrai.com/js/graph.abd4bc2af3869a96524d7d23b76152c7.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Joseph Semrai using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2022</p>
+        <ul>
+            
+            <li><a href="https://josephsemrai.com/">Home</a></li>
+            <li><a href="https://twitter.com/josephsemrai">Twitter</a></li><li><a href="https://github.com/josephsemrai">Github</a></li><li><a href="https://www.linkedin.com/in/~joe/">LinkedIn</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

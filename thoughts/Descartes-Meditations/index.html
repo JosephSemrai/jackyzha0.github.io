@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="Cartesian doubt refers to the opposite of trust in Nguyen&rsquo;s sense
+First Meditation → skeptical doubts  Descartes wants to find a foundation of knowledge that will still stand strong even after doubting the most basic facts about the world Everything Descartes has accepted has true has come through senses, but senses can deceive First Argument  Some experiences are deceptive (e."
+  />
+  <title>
+    Descartes&#39; Meditations
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  <meta property="og:url" content="https://josephsemrai.com" />
+  <meta property="og:title" content="" /> <meta
+  property="og:description" content="" />
+  <meta property="og:image" content="https://josephsemrai.com/res/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@josephsemrai" />
+  <meta name="twitter:title" content=""> <meta name="twitter:description"
+  content="" />
+  <meta name="twitter:image" content="https://josephsemrai.com/res/og-card.png" />
+
+  
+     
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    
+    
+    href="https://josephsemrai.com//icon.png"
+  /> 
+
+  
+                        
+  <link href="https://josephsemrai.com/styles.3f792f95b046b8a6c4dbf66a4412e3d0.min.css" rel="stylesheet" />
+
+  
+  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link" />
+
+  
+     
+  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
+   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://unpkg.com/@floating-ui/core@0.7.3"></script>
+  <script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>
+  
+  <script src="https://josephsemrai.com/js/popover.53ad9a087e3feeaaa12b63bfd02d923b.min.js"></script>
+
+  
+   
+  <script src="https://josephsemrai.com/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js"></script>
+   
+
+  
+   
+  <script>
+    
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const lastVisit = localStorage.getItem('lastVisitTime')
+    const now = Date.now()
+    let show = 'true'
+    if (lastVisit) {
+      document.documentElement.setAttribute('visited', 'true')
+      const minElapsed = Math.ceil((now - parseInt(lastVisit)) / (1000 * 60))
+      show = (!isReducedMotion && minElapsed > 5) ? 'true' : 'false'
+    }
+    document.documentElement.setAttribute('show-animation', show)
+    localStorage.setItem('lastVisitTime', `${now}`)
+
+    const BASE_URL = "https://josephsemrai.com/"
+    const fetchData = Promise.all([
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.efa99fc23e91c5dd3ed94f616383b1ae.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.03879fa055a7ab82c6b3199ecfdff199.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      
+
+      
+      initPopover(
+        "https://josephsemrai.com",
+         true ,
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "https://josephsemrai.com",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":0.8,"opacityScale":3,"repelForce":2,"scale":1}
+          );
+
+        }
+      
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+   
+  <script type="module">
+    import { attachSPARouting } from "https:\/\/josephsemrai.com\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WDD4K02HML"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WDD4K02HML', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="https://josephsemrai.com/js/full-text-search.24827f874defbbc6d529926cbfcfb493.min.js"></script>
+
+
+
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script src="https://unpkg.com/cursor-chat"></script>
+
+<div class="singlePage">
+    
+    <header class="delay t-3">
+    <h1 id="page-title"><a href="https://josephsemrai.com/">josephsemrai.com</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+
+</header>
+
+
+    <article>
+      <h1>Descartes&#39; Meditations</h1>
+      <p class="meta">
+        Last updated 
+Jan 12, 2022
+
+ 
+          
+<a href="https://github.com/josephsemrai/personal-hugo/tree/hugo/content/thoughts/Descartes%27%20Meditations.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+    
+    <li><a href="https://josephsemrai.com/tags/seed/">Seed</a></li>
+    
+    <li><a href="https://josephsemrai.com/tags/PHIL240A/">PHIL240A</a></li>
+    
+</ul>
+
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Cartesian doubt refers to the opposite of 
+
+
+
+
+
+<a
+  href="/thoughts/trust/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/trust/">trust</a> in Nguyen&rsquo;s sense</p>
+<a href="#first-meditation--skeptical-doubts"><h2 id="first-meditation--skeptical-doubts"><span class="hanchor" ariaLabel="Anchor"># </span>First Meditation → skeptical doubts</h2></a>
+<ul>
+<li>Descartes wants to find a foundation of knowledge that will still stand strong even after doubting the most basic facts about the world</li>
+<li>Everything Descartes has accepted has true has come through senses, but senses can deceive</li>
+<li>First Argument
+<ol>
+<li>Some experiences are deceptive (e.g. visual illusions, mirages)</li>
+<li>Any particular experience I have might be deceptive</li>
+<li>It is possible that <em>all</em> my experiences are deceptive</li>
+</ol>
+</li>
+<li>Counterexample to first argument
+<ul>
+<li>Some paintings are forgeries</li>
+<li>Any particular painting might be a forgery</li>
+<li>It is possible that all paintings are forgeries</li>
+<li>Can&rsquo;t be possible because all paintings if all paintings are forgeries, what are they based off of?</li>
+<li>Cannot dream things that have no component real parts (even mermaids, for example are part women and fish)</li>
+<li>Some universal axioms still hold
+<ul>
+<li>&ldquo;For whether I am awake or asleep, two plus three make five, and a square does not have more than four sides.&rdquo; (p. 15)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Descartes&rsquo; objection to First Argument
+<ul>
+<li>Premise 2 doesn&rsquo;t work → any particular experience I have might be deceptive</li>
+<li>I am sure of my own thoughts
+<ul>
+<li>And yet to have these doubts, one must exist. For an evil demon to mislead him in all these insidious ways, he must exist in order to be misled.</li>
+<li>Therefore, thought above all else is inseparable from being. The Meditator concludes that, in the strict sense, he is only a thing that thinks.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<a href="#dream-argument"><h3 id="dream-argument"><span class="hanchor" ariaLabel="Anchor"># </span>Dream Argument</h3></a>
+<ul>
+<li>Premises
+<ol>
+<li>I have dreamt at being at my desk</li>
+<li>When I dreamt it, I believed it was true</li>
+<li>When I dreamt it, it was false</li>
+<li>There is no way to tell whether you are dreaming or awake</li>
+</ol>
+</li>
+<li>Conclusion → i don&rsquo;t know that I am here at my desk right now</li>
+<li>As premise 4 is roughly equivalent to the conclusion, this argument is invalid
+<ul>
+<li>It begs the question → argument which has a premise as a conclusion (circular reasoning)</li>
+</ul>
+</li>
+</ul>
+<a href="#the-god-argument"><h3 id="the-god-argument"><span class="hanchor" ariaLabel="Anchor"># </span>The God argument</h3></a>
+<ul>
+<li>suppose there exists an evil demon, just as powerful as God, but which deceives me about everything he can</li>
+<li>descartes refutation
+<ul>
+<li>it seems possible for there to be such a person</li>
+<li>if there were such a person, then everything I believe would be false</li>
+<li>I can&rsquo;t tell that there isn&rsquo;t such a person</li>
+<li>so, I don&rsquo;t really know anything I thought i knew</li>
+</ul>
+</li>
+</ul>
+<a href="#second-meditation"><h2 id="second-meditation"><span class="hanchor" ariaLabel="Anchor"># </span>Second Meditation</h2></a>
+<ul>
+<li><em>I am, I exist</em> is necessarily true whenever it is put forward by me or conceived in my mind
+<ul>
+<li>For one to be deceived, one must first exist</li>
+</ul>
+</li>
+<li>What is &ldquo;I&rdquo;?
+<ul>
+<li>Soul and body can be deceptions</li>
+<li>Thought then, above all else, is inseparable from being</li>
+</ul>
+</li>
+</ul>
+<a href="#wax-argument"><h3 id="wax-argument"><span class="hanchor" ariaLabel="Anchor"># </span>Wax Argument</h3></a>
+<ul>
+<li>On how we come to know of a piece of wax</li>
+<li>Cannot come to know it through means of the senses
+<ul>
+<li>Put it near a fire and its perception by the senses changes (e.g. becomes soft when it was hard)</li>
+</ul>
+</li>
+<li>Cannot come to know it through imagination
+<ul>
+<li>One cannot imagine all the infinite number of different shapes in their imagination</li>
+</ul>
+</li>
+<li>Must be through means of intellect alone
+<ul>
+<li>Similar to seeing a man as a post (more in 
+
+
+
+
+
+<a
+  href="/thoughts/epistemology/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/epistemology/">epistemology</a>)</li>
+</ul>
+</li>
+<li>The Meditator happily concludes that he can know at least that he exists, that he is a thinking thing, that his mind is better known than his body, and that all clear and distinct perceptions come by means of the intellect alone, and not the senses or the imagination.</li>
+</ul>
+<a href="#third-meditation"><h2 id="third-meditation"><span class="hanchor" ariaLabel="Anchor"># </span>Third Meditation</h2></a>
+<ul>
+<li>To assure himself that he is not deceived, he must inquire into the nature of God</li>
+<li>Before doing this, the Meditator needs to classify his thoughts
+<ul>
+<li>Ideas: images of things
+<ul>
+<li>3 sources for ideas
+<ol>
+<li>Innate</li>
+<li>Adventitious: coming from &lsquo;outside&rsquo; us (as with our sensory perceptions)
+<ul>
+<li>His will has no effect on adventitious ideas: he cannot prevent himself from feeling hot when it is hot simply through the will, for instance.</li>
+</ul>
+</li>
+<li>Invented</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Volitions, emotions, judgements: idea is the object of the thought, and a further thing such as an affirmation or a fear which is directed towards the object of thought</li>
+</ul>
+</li>
+<li>One of the grave mistakes is to judge the ideas in one&rsquo;s mind to be accurate resemblances of things outside the mind (if they do even exist)
+<ul>
+<li>Thus the meditator considers ideas in the mind only as modes of thought</li>
+</ul>
+</li>
+<li>Ideas, as modes of thought, all have the same amount of formal reality (reality intrinsic to themselves) but their objective reality differs greatly
+<ul>
+<li>For Descartes and the Scholastics, ideas are the link that connect mind and world because they have both formal and objective reality.</li>
+<li>Can think about this like dividing reality into a scale where infinite substances (like God) have the most reality, followed by finite substances (bodies and minds), followed by modes (modifications of body and mind &ndash; e.g. colour, shape, size, etc.).
+<ul>
+<li>Ideas then, have the formal reality of modes (as they are modifications of the mind) but objective reality of a finite substance (car is a body)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>No effect can have a greater amount of reality than its cause
+<ul>
+<li>The idea of a stone, then, could be caused by a stone or a large rock but it could not be caused by a colour</li>
+<li>If the meditator can locate an idea with more objective reality than he has formal reality (finite substance). The only thing with more reality is infinite substance or the idea of God</li>
+</ul>
+</li>
+<li>
+
+
+
+
+
+<a
+  href="/thoughts/qualia/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/qualia/">qualia</a> can only be perceived in a confused and obscure way, so if they are things, they must have small degree of reality as to originate unproblematically from the Meditator himself</li>
+</ul>
+<a href="#existence-of-god"><h3 id="existence-of-god"><span class="hanchor" ariaLabel="Anchor"># </span>Existence of God</h3></a>
+<ul>
+<li>As the Meditator cannot have originated the concept of God (which has infinite substance), God must be the cause of this idea and must therefore exist
+<ul>
+<li>Could God not just be in contrast to his own finite being?</li>
+<li>We would not be aware of a lack unless we were aware of a more perfect being and God is the ultimate perfect being</li>
+<li>You can&rsquo;t actually get the idea of infinity just from endlessly increasing what&rsquo;s finite, so the infinite must independently exist (p. 32)</li>
+</ul>
+</li>
+<li>Could the Meditator themselves be supremely perfect?
+<ul>
+<li>If this is the case, it is plausible that the idea of God could be conceived in him without any outside cause</li>
+<li>Rejects this for 3 reasons
+<ol>
+<li>God is all actual and not potential</li>
+<li>If he is constantly improving, he will never attain perfection while there is room for improvement</li>
+<li>Potential is not being at all</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>The Meditator seems committed to claiming both (a) that we can only be sure of our clear and distinct perceptions if God exists and (b) we can know that God exists because we clearly and distinctly perceive the idea of God. If both (a) and (b) are true, Descartes is guilty of circular reasoning.</li>
+</ul>
+<a href="#fourth-meditation"><h2 id="fourth-meditation"><span class="hanchor" ariaLabel="Anchor"># </span>Fourth Meditation</h2></a>
+<ul>
+<li>If God has endowed him with infallible judgment, how is it that he can be mistaken, as he undoubtedly is from time to time</li>
+<li>If God is a perfect creator, God should be able to create perfect beings
+<ul>
+<li>The Lord works in mysterious ways &ndash; we should not seek to understand the true motives of God (?)</li>
+<li>We are only a small part of a much larger creation</li>
+</ul>
+</li>
+<li>Descartes is a proponent of free will
+<ul>
+<li>The will is free to affirm or deny whatever it wishes &ndash; as such, free will is the source of error</li>
+<li>If there was no free will, we would never make mistakes</li>
+</ul>
+</li>
+</ul>
+<a href="#fifth-meditation"><h2 id="fifth-meditation"><span class="hanchor" ariaLabel="Anchor"># </span>Fifth Meditation</h2></a>
+<ul>
+<li>God exists as an idea in the Meditators mind and he clearly and distinctly perceives all of his qualities. One of these qualities is existence, then God would not be God if he did not exist. (just as a triangle only exists if it has the property of being three-sided)</li>
+<li>At the very least, then, the existence of God must be as certain as the properties of mathematical and geometrical objects since he can prove them in the same way.</li>
+</ul>
+<a href="#essay"><h2 id="essay"><span class="hanchor" ariaLabel="Anchor"># </span>Essay</h2></a>
+<p><em>Evaluate Descartes&rsquo; assertion that God, as a perfect being, cannot be a deceiver. Note that some of his logic is implicit in his idea of perfection. Note that to evaluate an argument, you need to first explain the argument, and then say why it is or is not successful.</em></p>
+<p>Descartes, in his meditations, wishes to find a foundation of knowledge that will still stand strong even after doubting the most basic facts about the world. In doing so, he starts by methodically doubting all things that he has &ldquo;less than complete certainty&rdquo; of. He casts asides sensory experience, claiming that these can be deceived. Even objects close by could be illusory as he could be dreaming. Even basic axioms of the world like mathematics could be false because of some evil genius that has &ldquo;employed all his energies in order to deceive me&rdquo;. Iteratively, he tries to re-prove existence of many things, starting from the existence of self (<em>&ldquo;cogito, ergo sum&rdquo;</em>) and progressing towards an argument for the existence of God (and god as a perfect being who cannot be a deceiver.)</p>
+<p>In the Fifth Meditation, Descartes presents the argument as follows:</p>
+<ol>
+<li>Suppose there is a supremely perfect being &ndash; a being that has every possible &lsquo;perfect&rsquo; trait. A supremely perfect being <em>must</em> have every possible perfect trait because to exclude any or all perfections from a supremely perfect being is to stumble into a contradiction or to &ldquo;conceive of a mountain without a valley&rdquo;.</li>
+<li>Necessary existence is a perfection. It is an existence where one depends only on 
+
+
+
+
+
+<a
+  href="/thoughts/the-Self/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/the-Self/">the self</a> for existence (similar to the concept of independent origination in 
+
+
+
+
+
+<a
+  href="/thoughts/emptiness/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/emptiness/">emptiness</a>).</li>
+<li>Necessary existence cannot be separated from the essence of a supremely perfect being.</li>
+<li>Therefore, a supremely perfect being exists &ndash; it is God.</li>
+</ol>
+<p>However, this argument is flawed as it begs the question &ndash; the premise (that there exists a supremely perfect being) is also the conclusion (a supremely perfect being exists). This inherent circular argument then does not hold.</p>
+<p>For the sake of continued examination of the argument, let us assume that this argument is sound, and that God indeed does exist.</p>
+<p>Descartes goes on to utilize the statement that God exists to prove that God cannot be a deceiver.</p>
+<ol>
+<li>God exists and is perfect</li>
+<li>Deception is imperfect, therefore God cannot deceive</li>
+<li>Whatever I perceive &ldquo;clearly and distinctly&rdquo; must be true</li>
+<li>As my perception is clear, the material world must exist</li>
+</ol>
+<p>However, this argument also begs the question as it relies on the first proof that God necessarily exists as a premise. Unfortunately, Descartes first proof relies on the fact that Descartes has a clear and distinct idea of God, which presupposes clear and distinct perception (the conclusion of this argument). Thus, to show that his perception is clear, he must assume that his perception is clear &ndash; clearly an invalid argument.</p>
+
+
+    </article>
+    <hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      <li>
+        <a href="/posts/primacy-of-consciousness/" data-ctx="René Descartes" data-src="/posts/primacy-of-consciousness" class="internal-link">On Consciousness</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/Ny%C4%81ya/" data-ctx="Descartes&#39; Dream Argument" data-src="/thoughts/Ny%C4%81ya" class="internal-link">Nyāya</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/The-Upanisads/" data-ctx="Cartesian Realism" data-src="/thoughts/The-Upanisads" class="internal-link">The Upanisads</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/epistemology/" data-ctx="Descartes&#39; Meditations" data-src="/thoughts/epistemology" class="internal-link">Epistemology</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/trust/" data-ctx="Cartesian skepticism" data-src="/thoughts/trust" class="internal-link">Trust</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/truth/" data-ctx="Descartes&#39; Meditations" data-src="/thoughts/truth" class="internal-link">Truth</a>
+      </li>
+      
+      
+      
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="https://josephsemrai.com/js/graph.abd4bc2af3869a96524d7d23b76152c7.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Joseph Semrai using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2022</p>
+        <ul>
+            
+            <li><a href="https://josephsemrai.com/">Home</a></li>
+            <li><a href="https://twitter.com/josephsemrai">Twitter</a></li><li><a href="https://github.com/josephsemrai">Github</a></li><li><a href="https://www.linkedin.com/in/~joe/">LinkedIn</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

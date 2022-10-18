@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="Related: [[thoughts/consciousness|consciousness]], [[thoughts/monism#Neutral Monism|neutral monism]]
+Primacy of Consciousness PHIL451A Paper 3
+ Is consciousness primary?
+ For something to be primary is for it to be the first and foremost; a prior for all else that comes after it."
+  />
+  <title>
+    Primary of Consciousness
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  <meta property="og:url" content="https://josephsemrai.com" />
+  <meta property="og:title" content="" /> <meta
+  property="og:description" content="" />
+  <meta property="og:image" content="https://josephsemrai.com/res/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@josephsemrai" />
+  <meta name="twitter:title" content=""> <meta name="twitter:description"
+  content="" />
+  <meta name="twitter:image" content="https://josephsemrai.com/res/og-card.png" />
+
+  
+     
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    
+    
+    href="https://josephsemrai.com//icon.png"
+  /> 
+
+  
+                        
+  <link href="https://josephsemrai.com/styles.3f792f95b046b8a6c4dbf66a4412e3d0.min.css" rel="stylesheet" />
+
+  
+  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link" />
+
+  
+     
+  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
+   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://unpkg.com/@floating-ui/core@0.7.3"></script>
+  <script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>
+  
+  <script src="https://josephsemrai.com/js/popover.53ad9a087e3feeaaa12b63bfd02d923b.min.js"></script>
+
+  
+   
+  <script src="https://josephsemrai.com/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js"></script>
+   
+
+  
+   
+  <script>
+    
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const lastVisit = localStorage.getItem('lastVisitTime')
+    const now = Date.now()
+    let show = 'true'
+    if (lastVisit) {
+      document.documentElement.setAttribute('visited', 'true')
+      const minElapsed = Math.ceil((now - parseInt(lastVisit)) / (1000 * 60))
+      show = (!isReducedMotion && minElapsed > 5) ? 'true' : 'false'
+    }
+    document.documentElement.setAttribute('show-animation', show)
+    localStorage.setItem('lastVisitTime', `${now}`)
+
+    const BASE_URL = "https://josephsemrai.com/"
+    const fetchData = Promise.all([
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.efa99fc23e91c5dd3ed94f616383b1ae.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.03879fa055a7ab82c6b3199ecfdff199.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      
+
+      
+      initPopover(
+        "https://josephsemrai.com",
+         true ,
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "https://josephsemrai.com",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":0.8,"opacityScale":3,"repelForce":2,"scale":1}
+          );
+
+        }
+      
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+   
+  <script type="module">
+    import { attachSPARouting } from "https:\/\/josephsemrai.com\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WDD4K02HML"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WDD4K02HML', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="https://josephsemrai.com/js/full-text-search.24827f874defbbc6d529926cbfcfb493.min.js"></script>
+
+
+
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script src="https://unpkg.com/cursor-chat"></script>
+
+<div class="singlePage">
+    
+    <header class="delay t-3">
+    <h1 id="page-title"><a href="https://josephsemrai.com/">josephsemrai.com</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+
+</header>
+
+
+    <article>
+      <h1>Primary of Consciousness</h1>
+      <p class="meta">
+        Last updated 
+Apr 3, 2022
+
+ 
+          
+<a href="https://github.com/josephsemrai/personal-hugo/tree/hugo/content/thoughts/Primary%20of%20Consciousness.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+    
+    <li><a href="https://josephsemrai.com/tags/seed/">Seed</a></li>
+    
+    <li><a href="https://josephsemrai.com/tags/PHIL451A/">PHIL451A</a></li>
+    
+</ul>
+
+      
+
+      
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+
+
+
+
+
+<p>Related: <a href="/thoughts/consciousness" rel="noopener" class="internal-link" data-src="/thoughts/consciousness">consciousness</a>, <a href="/thoughts/monism#neutral-monism" rel="noopener" class="internal-link" data-src="/thoughts/monism">neutral monism</a></p>
+<a href="#primacy-of-consciousness"><h2 id="primacy-of-consciousness"><span class="hanchor" ariaLabel="Anchor"># </span>Primacy of Consciousness</h2></a>
+<p>PHIL451A Paper 3</p>
+<blockquote>
+<p>Is consciousness primary?</p>
+</blockquote>
+<p>For something to be primary is for it to be the first and foremost; a prior for all else that comes after it. First, I show how our current understanding of the physical world centres around the primacy of the material. Then, I claim that consciousness is primary – namely existentially, transcendentally, and epistemologically and finally posit a version of neutral monism as a stance on the primacy of consciousness.</p>
+<p>Historically, scientific materialists have argued that science and the scientific method enables us to get ‘outside of experience’ and grasp the world in and of itself. Yet, subjective experience is present at every step. When we observe the cosmos, we do so by formulating theories and models about how we think they work. All of this depends on the subjective experience. We look at the results of our complex telescopic instruments and formulate theories based off of what we have learned and have observed in the world. We pull scientific models from our experiments and observations but again, these are models and idealisations, not actual instantiations of ’things’ in the world.</p>
+<p>Gottfried Leibniz, Immanuel Kant, Arthur Schopenhauer, and Bertrand Russel were all strong believers that a fully physical account of the world actually offers no explanation of the <em>intrinsic nature</em> of the things within it (Leibniz, 1686; Kant, 1787; Schopenhauer, 1818; Russel, 1959). The ideal gas law tells us how pressure, volume, amount, and temperature of a gas are all related to each other, but tells us nothing about what each of those things in and of themselves are. Chemistry tells us that Carbon has an atomic number of six. At first glance, this may be an intrinsic property. But probe deeper at what an atomic number <em>is</em> and all it represents is the number of protons it has. Protons themselves are not ‘real’ things. They are abstractions of how this group of abstractions we call quarks behaves together depending on their relations. Mass is a property that determines how an object will obey the relation $m = \frac{F}{a}$. Again, it is abstractions all the way down. Purely physical descriptions <strong>tell us not what matter <em>is</em> but what what it <em>does</em>.</strong></p>
+<p>Physics, by name, is supposed to be a mathematical theory of the physical. Yet mathematics, by nature, is purely relational; numbers are quantifiers on abstract objects, formulas describe precise relations between variables. But intuitively, there must also be an <em>intrinsic nature</em> to these objects. <em>What is an atom in and of itself?</em> This question is not answered by a relational account of the world.</p>
+<p>It is tempting to say at this point that perhaps a relational view all there is to reality. After all, this is realistically all that is useful to the functioning of society. It has enabled us to program silicon, photograph the depths of the universe, and predict weather across the world. Yet intuitively, a world held up purely through relations does not make sense. As Hedda Hassel Mørch pointed out in her critique of physics for ignoring consciousness, “for there to be a relation there must be two things being related.” (Mørch, 2017) Otherwise, the relationship is empty – “a show that goes on without performers, or a castle constructed out of thin air.” Mørch posits that all physical relations should be made real by some substance that itself is not purely relational or else there would be no difference between mere mathematical abstraction and the concrete universe.</p>
+<p>Clearly, if we wish to poke beyond this veil of pure abstractions, our current explanations of our reality will not do: intrinsic natures simply cannot be captured through a purely physical approach. Materialism as given so far does not seem to stand. Taking its physical description as the totality is like <strong>confusing the map with the territory.</strong> It may be fine if you just need the map to navigate the world, but to open one’s eyes to the real world, we must dig deeper. Here, I propose that perhaps consciousness is fundamental to reality, not the other way around &ndash; that consciousness is <em>primary</em>.</p>
+<p>It almost self-evident that consciousness is <strong>existentially primary</strong> – it is through the subjective human experience, that the universe is disclosed to us. Arthur Eddington argued that the one thing we know concretely about consciousness is that has an intrinsic nature (Eddington, 1927). As René Descartes famously said in his Second Meditation, “cogito, ergo sum”: I think, therefore I am. It is the foundation upon which Descartes builds upon his certainty in his knowledge about the world. In all the ways we can be mistaken about reality, consciousness is not one of them – it is a reality that we apprehend directly and without inference. Thus, consciousness is existentially primary.</p>
+<p>Consciousness is also <strong>transcendentally primary</strong>. Kant defined transcendental primacy as all knowledge which is “occupied not so much with objects as with the mode of our knowledge of objects in so far as this mode of knowledge is to be possible a priori.” (Kant, 1787) In more colloquial language, the transcendental primacy of consciousness refers to how consciousness is not another object of knowledge, but that by which any object can become <em>knowable</em>.</p>
+<p>Edmund Husserl, in his 1936 work <em>The Crisis of European Sciences and Transcendental Phenomenology,</em> defines a concept called the <em>life-world</em>. Roughly defined, it refers to the world as it is collectively experienced. Husserl likened this model of consciousness to our visual horizon: it is not really an object, but a rather a process of uncovering or displaying potentialities (Husserl, 1936).</p>
+<p>It is in this way then that the horizonal sense of consciousness is not something that can be <em>had,</em> but rather something we <em>live</em>. Quoting Bertrand Russel, “we know nothing about the intrinsic quality of physical events except when these are mental events that we directly experience.” (Russel, 1919) As such, consciousness is transcendentally primary.</p>
+<p>Consciousness is additionally <strong>epistemically primary</strong> – it is the source and destination of all knowledge. In creating models, we set aside aspects of experience on which we have doubts about (e.g. our senses, emotions, etc.) and extract idealised and abstract models (e.g. mathematics, physics, logic). Even the most abstract physical relation or mathematical formulas describe some ‘real’ thing we are trying to model or express a relation between. These models ideals and models are only as useful insofar as we can implement these abstractions as things we can use to measure, predict, and control phenomena within our lived experience. In this way, consciousness is epistemically primary.</p>
+<p>I will pause here to clarify that I am <em>not</em> claiming consciousness to be ontologically primary. I am not making any sort of panpsychist claim that consciousness exists as a fundamental aspect of reality where everything has a small amount of consciousness. Neither am I claiming that consciousness exists inherently in the natural world as a fundamental aspect of reality.</p>
+<p>Rather, I am positing a form of <strong>neutral monism</strong> that sits somewhere between physicalism and idealism. Monism, in its simplest form, suggests that there is only one ‘kind’ of underlying reality. A neutral stance on this does not side with either matter or mind, instead a potential 3rd substance. Russel explained this form of reality as having “a single underlying nature that is <em>neither</em> mental nor physical but capable of being expressed in these two different ways.” (Russel, 1919) Much like the interiors and exterior of any object, Russel’s account of the mental and physical imply and necessitate each other as reflection of a single nature.</p>
+<p>In Husserl’s horizon metaphor, the horizon is not possible without a world to be observed but the world also cannot be perceived without a perceiver. Similarly, the ‘horizon’ of consciousness is not possible without the physical but the the physical cannot be perceived without the mental. It is absurd to try to reduce one completely to another.</p>
+<p>Francisco Varela’s notion of “mutually generative constraints,” (Varela, 1996) points toward a possibility where both physicalism and idealism work together towards reciprocal enrichment:</p>
+<ol>
+<li>Phenomenological reports may help to pick out and ascribe meaning to previously unnoticed neural configurations</li>
+<li>Neurological findings may become an incentive for re-categorization and further development in phenomenological research</li>
+</ol>
+<p>It is in this neutrally monistic view that one can acknowledge consciousness as primary without necessarily needing to discount our existing objective knowledge about the world. This neutrally monistic view of consciousness does not ‘solve’ the hard problem. Rather, the problem never even arises because the physical world is no longer the standard for being, and objectivity is no longer the ultimate standard of being.</p>
+<a href="#citations"><h3 id="citations"><span class="hanchor" ariaLabel="Anchor"># </span>Citations</h3></a>
+<ul>
+<li>Bitbol, M. (2008). Is consciousness primary?.</li>
+<li>Eddington, A. (1927). _The nature of the physical world: THE GIFFORD LECTURES (Vol. 23).</li>
+<li>Descartes, R. (2008). Meditations on first philosophy (M. Moriarty, Trans.). Oxford University Press.</li>
+<li>Husserl, E. (1936). <em>The crisis of European sciences and transcendental phenomenology: An introduction to phenomenological philosophy</em>. Northwestern University Press.</li>
+<li>Kant, I. (1787). Critique of pure reason. <em>Modern Classical Philosophers, Cambridge, MA: Houghton Mifflin</em>, 370-456.</li>
+<li>Leibniz, G. W. (1686). Discours de métaphysique [Discourse on Metaphysics]. <em>Die Philosophischen Schriften</em>, G, <em>IV</em>, 1875-90.</li>
+<li>Mørch, H. H. (2017, March 31). <em>Is matter conscious?</em> Nautilus | Science Connected. Retrieved April 7, 2022, from 
+
+<a href="https://nautil.us/is-matter-conscious-6028/" rel="noopener">https://nautil.us/is-matter-conscious-6028/</a></li>
+<li>Russel, B., (1919), On Propositions: What They Are and How They Mean, <em>Proceedings of the Aristotelian Society</em>, Supplementary Volume 2: 1–43. 283–321.</li>
+<li>Russell, B. (1959). <em>My philosophical development</em>. Psychology Press.</li>
+<li>Schopenhauer, A., Frauenstädt, J., &amp; Hübscher, A. (1818). <em>Die welt als wille und vorstellung</em> (Vol. 2). Leipzig: Brockhaus.</li>
+<li>Varela, F. J. (1996). Neurophenomenology: A methodological remedy for the hard problem. <em>Journal of consciousness studies</em>, <em>3</em>(4), 330-349.</li>
+</ul>
+<a href="#horizon-metaphor"><h2 id="horizon-metaphor"><span class="hanchor" ariaLabel="Anchor"># </span>Horizon Metaphor</h2></a>
+<p>Husserl had no word to denote what is not really an object, but a process of uncovering or displaying potentialities &ndash; thus, the horizon metaphor.</p>
+<blockquote>
+<p>The existential primacy of consciousness: consciousness in the horizonal sense is not something we have; it&rsquo;s something we <em>live</em></p>
+</blockquote>
+<p>Two conceptions</p>
+<ol>
+<li>The horizon is real: it is the farthest point the eye can see before the Earth&rsquo;s surface curves away beneath our view</li>
+<li>The horizon is ideal: it is a structure of perception but not something that actually exists independent of perception</li>
+</ol>
+<p>The horizon is a phenomenal structure of consciousness, not a particular phenomenal property (quale) or phenomenal content. Both 
+
+
+
+
+
+<a
+  href="/thoughts/qualia/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/qualia/">qualia</a> and other phenomenal contents always appear from within the horizon of consciousness.</p>
+<p>Consciousness then in the horizonal sense is not something we &lsquo;have&rsquo;, it is something we live in. There is no way to step outside consciousness and measure it against something else because inside the horizon is all we know</p>
+<p>The horizon itself is 
+
+
+
+
+
+<a
+  href="/thoughts/emptiness/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/emptiness/">empty</a>.</p>
+<p>Kant defines &rsquo;transcendental knowledge&rsquo; as knowledge which is occupied not so much with objects as with the mode of our knowledge of objects in so far as this mode of knowledge is to be possible <em>a priori</em>. Consciousness then is not another object of knowledge, but that by which any object is knowable &ndash; consciousness is irreducible to the domain of objects.</p>
+<p>
+
+
+<img src="https://josephsemrai.com//thoughts/images/Merleau-Ponty%20on%20the%20world%20and%20consciousness.png" width="auto" alt="Merleau-Ponty on the world and consciousness"  /><em>Merleau-Ponty on the world and consciousness</em></p>
+<a href="#two-conceptions-on-the-world-and-the-universe"><h3 id="two-conceptions-on-the-world-and-the-universe"><span class="hanchor" ariaLabel="Anchor"># </span>Two conceptions on the world and the universe</h3></a>
+<p>Define the life-world as the space of meaning within which anything is intelligible and thinkable</p>
+<ol>
+<li>Natural Science: the universe contains the life-world</li>
+<li>Philosophy: the life-world contains the universe; the universe is always disclosed to us from within the life-world</li>
+</ol>
+<a href="#the-blind-spot"><h2 id="the-blind-spot"><span class="hanchor" ariaLabel="Anchor"># </span>The Blind Spot</h2></a>
+<p>Adam Frank, Marcelo Gleiser, Evan Thompson in <em>Aeon</em></p>
+<p>Scientific materialists will argue that the scientific method enables us to get outside of experience and grasp the world as it is in itself. But experience is present at every step. Scientific models must be pulled out from observations, often mediated by our complex scientific equipment. They are idealisations, not actual things in the world.</p>
+<p>&ldquo;In principle, it is absurd to think that we can explain consciousness by reducing it to certain objects of science, since these objects are abstract relational structures extracted from the life-world of lived experience&rdquo; (Husserl)</p>
+<p>Quantum-Bayesianism (QBism) combines quantum information theory and Bayesian probability theory. It interprets the irreducible probabilities of a quantum state not as an element of reality, but <em>as the degrees of belief an agent has about the outcome of a measurement</em>. In other words, making a measurement is like making a bet on the world’s behaviour, and once the measurement is made, updating one’s knowledge.</p>
+<p>Advocates of this interpretation sometimes describe it as ‘participatory realism’, because human agency is woven into the process of doing physics as a means of gaining knowledge about the world. From this viewpoint, the equations of quantum physics don’t refer just to the observed atom but also to the observer and the atom taken as a whole in a kind of ‘observer-participancy’</p>
+<p>The upshot: there is no simple way to remove our experience as scientists from the characterization of the physical world. Observing it doesn&rsquo;t only affect the measurement, observing it <em>is</em> the measurement</p>
+<p>Scientific knowledge then is a self-correcting narrative made from the world and our experience of it evolving together (see <a href="/thoughts/philosophy-of-science" rel="noopener" class="internal-link" data-src="/thoughts/philosophy-of-science">Karl Popper&rsquo;s Philosophy of Science</a>)</p>
+<a href="#is-consciousness-primary"><h2 id="is-consciousness-primary"><span class="hanchor" ariaLabel="Anchor"># </span>Is Consciousness Primary?</h2></a>
+<p>Michel Bitbol in <em>NeuroQuantology</em></p>
+<p>Posits that consciousness is methodological and existentially primary</p>
+<ul>
+<li>Consciousness is not <em>something</em>
+<ul>
+<li>Nouns refer to some manipulable or abstract object. But an object is an entity which supposedly exists independently of situations and subjective states.</li>
+<li>This cannot possibly be the case as consciousness as experience is situated &ndash; it is what it feels like to be <em>a</em> subject/what it feels like to be</li>
+</ul>
+</li>
+</ul>
+<p>Arguing that consciousness is existentially primary and not <a href="/thoughts/ontology" rel="noopener" class="internal-link" data-src="/thoughts/ontology">ontologically</a> secondary to matter. Sartre: &ldquo;consciousness is never merely possible apart from existing; it is no possible instantiation of a definition apart from being actual&rdquo;</p>
+<blockquote>
+<p>They have forgotten that objective knowledge is &lsquo;made possible&rsquo; by carving the lacuna of first person experience within it&hellip; scientists who believe that solving many such &ldquo;easy problems&rdquo; about consciousness will finally clear up the harder problem of its physical origin, look like somebody who believes one can finally reach the horizon by walking far enough</p>
+</blockquote>
+<p>In the same way as the walker ignores the category gap between a line <em>in</em> space and an apparent line seen <em>through</em> space, these scientists ignore the category gap between the exclusively structural connections provided by science and the absolute and the absolute of experience analyzed through a structured framework</p>
+<p>Two approaches to overcome the <a href="/thoughts/Hard-problem-of-consciousness#explanatory-gap" rel="noopener" class="internal-link" data-src="/thoughts/Hard-problem-of-consciousness">explanatory gap</a> both fail</p>
+<ol>
+<li>Absolutizing some properties of matter
+<ul>
+<li>If anything can be called &ldquo;absolute&rdquo;, it is conscious experience
+<ul>
+<li>Lived experience is immediately and completely given from a self-evidential standpoint</li>
+<li>Future experience can by no means <em>disconfirm</em> its existence here and now, but only take its place &ndash; it is absolute in the sense that it is indubitable whenever it is present</li>
+</ul>
+</li>
+<li>Searle: &ldquo;Consciousness is the very fact that there is appearance; appearance is the reality of consciousness&rdquo;</li>
+<li>Something like &ldquo;it appears red&rdquo; instead of &ldquo;it <em>is</em> red&rdquo;. The subjective statement is admittedly indisputable, but the fact is not. This is a <em>functional absolutization</em> of the statement</li>
+</ul>
+</li>
+<li>Relativizing/structuralizing experience
+<ul>
+<li>Karl Mannheim: coordinating the variety of individual or collective perspectives entails an ever increasing formalization of knowledge</li>
+<li>Cassirer: history of science as a whole tends towards relinquishment of substantial and toward research of &ldquo;invariant relations&rdquo; instead
+<ul>
+<li>If properties are referred to, it is only after the concept of property has been redefined in such a way that it includes in itself the concept of relation</li>
+</ul>
+</li>
+<li>The problem: accounting for the self-evidentially <em>absolute</em> conscious experience in terms of the <em>relational</em> concepts of objective science
+<ul>
+<li>Chalmers and Strawson both attempt to overcome this conflict in naturalist terms, seeking to explain it in terms of some hidden <em>nonrelational</em> property</li>
+<li>Leibnizian <em>Monadology</em>: &ldquo;we can attribute to substances no other intrinsic state than that whereby we ourselves inwardly determine our sense&rdquo;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Potential solutions</p>
+<ol>
+<li>Instead of absorbing or reducing contents of experience or phenomenological reports into the structural network of objective science, strive towards <em>embedding</em> these experiences within a broader relational network of which the law-like relations of the objective domain is only a fraction</li>
+<li>Varela&rsquo;s notion of &ldquo;mutually generative constraints&rdquo; towards reciprocal alteration and enrichment of experiential and objective concepts
+<ol>
+<li>Phenomenological reports may help to pick out and ascribe meaning to previously unnoticed neural configurations</li>
+<li>Neurological findings may become an incentive for re-categorization and further development in phenomenological research</li>
+</ol>
+</li>
+</ol>
+<p>These are not &lsquo;solutions&rsquo; to the <a href="/thoughts/Hard-problem-of-consciousness" rel="noopener" class="internal-link" data-src="/thoughts/Hard-problem-of-consciousness">hard problem</a> per-se but rather dissolves it. It does not arise because the physical world is no longer the standard for being, and objectivity is no longer the ultimate standard of method.</p>
+
+
+    </article>
+    <hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      <li>
+        <a href="/posts/primacy-of-consciousness/" data-ctx="PHIL451A final paper" data-src="/posts/primacy-of-consciousness" class="internal-link">On Consciousness</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/consciousness/" data-ctx="Primary of Consciousness" data-src="/thoughts/consciousness" class="internal-link">Consciousness</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/ontology/" data-ctx="quantum microtubules" data-src="/thoughts/ontology" class="internal-link">Ontology</a>
+      </li>
+      
+      
+      
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="https://josephsemrai.com/js/graph.abd4bc2af3869a96524d7d23b76152c7.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Joseph Semrai using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2022</p>
+        <ul>
+            
+            <li><a href="https://josephsemrai.com/">Home</a></li>
+            <li><a href="https://twitter.com/josephsemrai">Twitter</a></li><li><a href="https://github.com/josephsemrai">Github</a></li><li><a href="https://www.linkedin.com/in/~joe/">LinkedIn</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

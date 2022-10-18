@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="Template Matching Linear filtering is also known as template matching. Convolution/correlation can be thought of as comparing a template (the kernel) with each section of the image."
+  />
+  <title>
+    Object Detection
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  <meta property="og:url" content="https://josephsemrai.com" />
+  <meta property="og:title" content="" /> <meta
+  property="og:description" content="" />
+  <meta property="og:image" content="https://josephsemrai.com/res/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@josephsemrai" />
+  <meta name="twitter:title" content=""> <meta name="twitter:description"
+  content="" />
+  <meta name="twitter:image" content="https://josephsemrai.com/res/og-card.png" />
+
+  
+     
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    
+    
+    href="https://josephsemrai.com//icon.png"
+  /> 
+
+  
+                        
+  <link href="https://josephsemrai.com/styles.3f792f95b046b8a6c4dbf66a4412e3d0.min.css" rel="stylesheet" />
+
+  
+  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link" />
+
+  
+     
+  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
+   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://unpkg.com/@floating-ui/core@0.7.3"></script>
+  <script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>
+  
+  <script src="https://josephsemrai.com/js/popover.53ad9a087e3feeaaa12b63bfd02d923b.min.js"></script>
+
+  
+   
+  <script src="https://josephsemrai.com/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js"></script>
+   
+
+  
+   
+  <script>
+    
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const lastVisit = localStorage.getItem('lastVisitTime')
+    const now = Date.now()
+    let show = 'true'
+    if (lastVisit) {
+      document.documentElement.setAttribute('visited', 'true')
+      const minElapsed = Math.ceil((now - parseInt(lastVisit)) / (1000 * 60))
+      show = (!isReducedMotion && minElapsed > 5) ? 'true' : 'false'
+    }
+    document.documentElement.setAttribute('show-animation', show)
+    localStorage.setItem('lastVisitTime', `${now}`)
+
+    const BASE_URL = "https://josephsemrai.com/"
+    const fetchData = Promise.all([
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.efa99fc23e91c5dd3ed94f616383b1ae.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.03879fa055a7ab82c6b3199ecfdff199.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      
+
+      
+      initPopover(
+        "https://josephsemrai.com",
+         true ,
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "https://josephsemrai.com",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":0.8,"opacityScale":3,"repelForce":2,"scale":1}
+          );
+
+        }
+      
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+   
+  <script type="module">
+    import { attachSPARouting } from "https:\/\/josephsemrai.com\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WDD4K02HML"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WDD4K02HML', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="https://josephsemrai.com/js/full-text-search.24827f874defbbc6d529926cbfcfb493.min.js"></script>
+
+
+
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script src="https://unpkg.com/cursor-chat"></script>
+
+<div class="singlePage">
+    
+    <header class="delay t-3">
+    <h1 id="page-title"><a href="https://josephsemrai.com/">josephsemrai.com</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+
+</header>
+
+
+    <article>
+      <h1>Object Detection</h1>
+      <p class="meta">
+        Last updated 
+Dec 24, 2021
+
+ 
+          
+<a href="https://github.com/josephsemrai/personal-hugo/tree/hugo/content/thoughts/object%20detection.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+    
+    <li><a href="https://josephsemrai.com/tags/seed/">Seed</a></li>
+    
+</ul>
+
+      
+
+      
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="#template-matching"><h2 id="template-matching"><span class="hanchor" ariaLabel="Anchor"># </span>Template Matching</h2></a>
+<p>Linear filtering is also known as template matching. Convolution/correlation can be thought of as comparing a template (the kernel) with each section of the image.</p>
+<ul>
+<li>Consider the filter and image section as vectors</li>
+<li>Applying the filter can be interpreted as computing the dot product between the filter and the local image patch</li>
+</ul>
+<p>The correlation is then normalized to between -1 and 1 using cosine similarity, where 1 is the value when the filter and image region are identical. This process is essentially finding the cosine similarity between template and local image neighbourhood</p>
+<p>$$\cos\theta = \frac{a \cdot b}{|a||b|} = \frac{a \cdot b}{\sqrt{(a \cdot a)(b \cdot b)}} = \frac{a}{|a|} \frac{b}{|b|}$$</p>
+<p>Then, we can map over the image and create a correlation map. Thresholding this gives us detections.</p>
+<p>Good:</p>
+<ol>
+<li>Robust against noise</li>
+<li>Relatively easy to compute
+Bad:</li>
+<li>Scaling (we can address this using scaled representations like a Gaussian image pyramid)</li>
+<li>Rotation</li>
+<li>Lighting conditions</li>
+<li>Sensitive to viewing direction and pose (in 3D worlds)</li>
+</ol>
+<a href="#gaussian-image-pyramid"><h3 id="gaussian-image-pyramid"><span class="hanchor" ariaLabel="Anchor"># </span>Gaussian Image Pyramid</h3></a>
+<p>Collection of representations of an image. Typically, each layer of the pyramid is half the width and half the height of the previous layer. In the Gaussian version, each layer is smoothed by a Gaussian then resampled to get the next layer.</p>
+<p>Details get smoothed out (are completely lost) as we move to higher levels, only large uniform regions of colours in the original image are left.</p>
+<p>
+
+<img src="https://miro.medium.com/max/1016/1*Q9UKqUC6OqpR3KL1yRrXxA.png" width="auto" alt="Upsampling Process"  /></p>
+<a href="#laplacian-pyramid"><h3 id="laplacian-pyramid"><span class="hanchor" ariaLabel="Anchor"># </span>Laplacian Pyramid</h3></a>
+<p>To do this, create a Gaussian pyramid and take the difference between one pyramid level and the next after smoothing but before subsampling.</p>
+<p>At each level, retain the residuals (difference between smoothed image and normal image) instead of the blurred images themselves.</p>
+<p>Constructing the pyramid, we repeat until min resolution reached:</p>
+<ol>
+<li>Blur</li>
+<li>Compute Residual</li>
+<li>Subsample</li>
+</ol>
+<p>Reconstructing, we repeat until original resolution reached:</p>
+<ol>
+<li>Upsample</li>
+<li>Blur</li>
+<li>Sum with residual</li>
+</ol>
+<a href="#local-feature-detection"><h2 id="local-feature-detection"><span class="hanchor" ariaLabel="Anchor"># </span>Local Feature Detection</h2></a>
+<blockquote>
+<p>Moving from global template matching to local template matching (e.g.edges and corners)</p>
+</blockquote>
+<p>As differentiation is linear and shift invariant, we can implement it as a convolution.</p>
+<p>The discrete approximation is $\frac{\partial f}{\partial x} \approx \frac{F(X+ \Delta x, y) - F(x,y)}{\Delta x}$ where $\Delta x$ is usually $1$. This is equivalent to a convolution $F$ is a $1 \times 2$ filter with the first element is $-1$ and the second element is $1$. Note that the derivatives go up for the Y direction and the right for the X direction.</p>
+<p>We usually smooth the image prior to derivative estimation. Increased smoothing</p>
+<ul>
+<li>eliminates noise edges</li>
+<li>makes edges smoother and thicker</li>
+<li>removes fine detail</li>
+</ul>
+<p>Weights of a filter for differentiation should sum to 0 as a constant image should have derivative 0.</p>
+<a href="#edge-detection"><h3 id="edge-detection"><span class="hanchor" ariaLabel="Anchor"># </span>Edge Detection</h3></a>
+<p>The goal here is to identify sudden changes in image brightness as this encodes the vast majority of shape information.</p>
+<p>An edge is a location with high gradient.</p>
+<p>Mainly caused by</p>
+<ul>
+<li>Depth discontinuity</li>
+<li>Surface orientation discontinuity</li>
+<li>Reflectance discontinuity (e.g. change in material)</li>
+<li>Illumination discontinuity (e.g. shadows)</li>
+</ul>
+<p>As we usually smooth prior to derivative calculation and convolution is associative, we can combine both steps and use derivatives of Gaussian filters.</p>
+<p>$$D \otimes (G \otimes I(X,Y)) = (D \otimes G) \otimes I(X,Y)$$</p>
+<a href="#sobel-gradient-magnitude"><h4 id="sobel-gradient-magnitude"><span class="hanchor" ariaLabel="Anchor"># </span>Sobel (Gradient Magnitude)</h4></a>
+<p>Let $I(X,Y)$ be an image. Then, we let $I_x(X,Y)$ and $I_y(X,Y)$ be estimates of the partial derivatives in the $x$ and $y$ directions, respectively. Then, the vector $[I_x, I_y]$ or $\nabla f = [\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}]$ is the gradient and $\sqrt{I_x^2+I_y^2}$ is the gradient magnitude.</p>
+<p>The gradient points in the direction of most rapid increase of intensity. The direction is then $\theta = \arctan{\frac{\frac{\partial f}{\partial y}}{\frac{\partial f}{\partial x}}}$. The strength of the edge is then the magnitude $||\nabla f|| = \sqrt{\frac{\partial f}{\partial x}^2 + \frac{\partial f}{\partial y}^2}$.</p>
+<a href="#marrhildreth-laplacian-of-gaussian"><h4 id="marrhildreth-laplacian-of-gaussian"><span class="hanchor" ariaLabel="Anchor"># </span>Marr/Hildreth (Laplacian of Gaussian)</h4></a>
+<p><strong>Design Criteria</strong></p>
+<ol>
+<li>localization of space (find where the edge is)</li>
+<li>localization in frequency (identify high frequency and low frequency edges)</li>
+<li>rotationally invariant (rotation shouldn&rsquo;t affect edges)</li>
+</ol>
+<p>Find the zero-crossings (intercepts) of the Laplacian of the Gaussian. This is $\nabla^2 G(x,y) = \frac{-1}{2\pi\sigma^4}[2-\frac{x^2+y^2}{\sigma^2}]\exp{(-\frac{x^2+y^2}{2\sigma^2})} = 0$</p>
+<p>Alternatively, we can say that subtracting the delta function from the Gaussian gives you an approximation of the Laplacian</p>
+<a href="#canny-local-extrema-of-1st-deriv"><h4 id="canny-local-extrema-of-1st-deriv"><span class="hanchor" ariaLabel="Anchor"># </span>Canny (Local Extrema of 1st deriv)</h4></a>
+<p><strong>Design Criteria</strong></p>
+<ol>
+<li>good detection (reduce missed edges, reduced edges where edges don&rsquo;t exist)</li>
+<li>good localization (accurate edge detection)</li>
+<li>one (single) response to a given edge</li>
+</ol>
+<p>Find the local extrema of a first derivative operator.</p>
+<p>Steps</p>
+<ol>
+<li>
+<p>Apply directional derivatives of Gaussian</p>
+</li>
+<li>
+<p>Computer gradient magnitude and gradient direction</p>
+</li>
+<li>
+<p>Perform non-max suppression
+Non-max suppression allows us to suppress near-by similar detections to obtain one &ldquo;true&rdquo; result. In images, we select the maximum point across the width of the edge (following the direction of the gradient).</p>
+<p>In implementations, the value at a pixel $q$ must be larger than its interpolated values at $p$ (the next pixel in the direction of the gradient) and $r$ (the previous pixel in the direction of the gradient). Interpolate as needed.</p>
+</li>
+<li>
+<p>Linking and thresholding
+Trying to fix broken edge chains by linking separate edge pixels through taking the normal of the gradient and linking it if the nearest interpolated pixel is also an edge pixel. Accept all edges over low threshold that are connect to an edge over high threshold.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Author</th>
+<th>Approach</th>
+<th>Detection</th>
+<th>Localization</th>
+<th>Single Resp</th>
+<th>Limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sobel</td>
+<td>Gradient Magnitude Threshold</td>
+<td>Good</td>
+<td>Poor</td>
+<td>Poor</td>
+<td>Thick edges</td>
+</tr>
+<tr>
+<td>Marr/Hildreth</td>
+<td>Zero-crossings of 2nd Derivative</td>
+<td>Good</td>
+<td>Good</td>
+<td>Good</td>
+<td>Smooths Corners</td>
+</tr>
+<tr>
+<td>Canny</td>
+<td>Local extrema of 1st Derivative</td>
+<td>Best</td>
+<td>Good</td>
+<td>Good</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<a href="#boundary-detection"><h3 id="boundary-detection"><span class="hanchor" ariaLabel="Anchor"># </span>Boundary Detection</h3></a>
+<p>How closely do image edges correspond to boundaries that humans perceive to be salient or significant?</p>
+<p>One approach is using circular windows of radii $r$ at each pixel $(x,y)$ cut in half by a line that bisects the circle in half. Then, compare visual features on both sides of the cut and if the features are statistically different, then the cut line probably corresponds to a boundary.</p>
+<p>For statistical significance:</p>
+<ol>
+<li>Compute non-parametric distribution (histogram) for left side</li>
+<li>Compute non-parametric distribution (histogram) for right side</li>
+<li>Compare two histograms, on left and right side, using statistical test</li>
+</ol>
+<p>Example features include</p>
+<ul>
+<li>Raw Intensity</li>
+<li>Orientation Energy</li>
+<li>Brightness Gradient</li>
+<li>Color Gradient</li>
+<li>Texture gradient</li>
+</ul>
+<p>For this implementation, we consider 8 discrete orientations ($\theta$) and 3 scales ($r$)</p>
+<a href="#features"><h3 id="features"><span class="hanchor" ariaLabel="Anchor"># </span>Features</h3></a>
+<p>Corners are locally distinct 2D image features that (hopefully) correspond to a distinct position on a 3D object of interest in the scene.</p>
+<p>Cannot be an edge as estimation of a location along an edge is close to impossible (the aperture problem)</p>
+<a href="#autocorrelation"><h3 id="autocorrelation"><span class="hanchor" ariaLabel="Anchor"># </span>Autocorrelation</h3></a>
+<p>Correlation of the image (distribution of pixel values) with itself. At each pixel, compute its partial derivative w.r.t. either the $x$ or the $y$ axis, $I_y = \frac{\partial I}{\partial y}, I_x = \frac{\partial I}{\partial x}$.</p>
+<p>Windows on an edge will have autocorrelation that falls of slowly in the direction of the edge but rapidly orthogonal to the edgge. Windows on a corder will have autocorrelation that falls off rapidly in all directions.</p>
+<a href="#harris-corner-detection"><h4 id="harris-corner-detection"><span class="hanchor" ariaLabel="Anchor"># </span>Harris Corner Detection</h4></a>
+<p>As a stats reminder, covariance is the <em>direction</em> of the correlation. The closer the covariance is to 1, the closer it is to a perfect positive correlation. -1 implies perfect negative correlation.</p>
+<p>When drawing distrubtion, draw normals to edges going from low values (dark) to high values (white).</p>
+<ol>
+<li>Compute image gradients over small region</li>
+<li>Compute covariance matrix $$\begin{bmatrix}\sum_{p \in P}I_xI_x &amp; \sum_{p \in P}I_xI_y \\ \sum_{p \in P}I_yI_x &amp; \sum_{p \in P}I_yI_y\end{bmatrix}$$ (essentially fitting a quadratic to the gradients over the small image patch $P$)</li>
+<li>Computer eigenvectors and eigenvalues of the covariance matrix.</li>
+<li>Use threshold on eigenvalues to detect corners ($&gt;0$ is a corner)</li>
+</ol>
+<p>We can visualize the covariance matrix $C$ as an ellipse whose axis lengths are determined by the eigenvalues and orientation determined by $R$ (the rotation matrix). It tells us the dispersion of the gradients nearby.</p>
+<p>As $C$ is symmetric, we have the covariance matrix as the ellipse equation</p>
+<p>$$f(x,y) = \begin{bmatrix}x &amp; y\end{bmatrix}\begin{bmatrix}1 &amp; 0 \\ 0 &amp; 1\end{bmatrix}\begin{bmatrix}x \\ y\end{bmatrix} = \textrm{const}$$</p>
+<p>Where the minor axis is $\lambda_{max}^{-1/2}$ and the major axis is $\lambda_{min}^{-1/2}$</p>
+<p>Then, this is what the eigenvalues tell us:</p>
+<ul>
+<li>Case 1 (both $\lambda_1$ and $\lambda_2$ are close to zero): flat region</li>
+<li>Case 2 ($\lambda_2$ is much greater than $\lambda_1$): horizontal edge</li>
+<li>Case 3 ($\lambda_1$ is much greater than $\lambda_2$): vertical edge</li>
+<li>Case 4 ($\lambda_1$ are both rather large $\lambda_2$): corner</li>
+</ul>
+<p>To threshold, we can pick a function</p>
+<ol>
+<li>Harris &amp; Stephens: $\lambda_1 \lambda_2 - \kappa (\lambda_1 + \lambda_2)^2$ which is equivalent to $\det(C) - \kappa \textrm{trace}^2(C)$. $\kappa$ is usually 0.4 or 0.6.</li>
+<li>Kanade &amp; Tomasi: $\min(\lambda_1, \lambda_2)$</li>
+<li>Nobel: $\frac{\det(C)}{\textrm{trace}(C)+\epsilon}$</li>
+</ol>
+<a href="#linear-algebra-asidereview"><h4 id="linear-algebra-asidereview"><span class="hanchor" ariaLabel="Anchor"># </span>Linear Algebra Aside/Review</h4></a>
+<p>Given a square matrix $A$, a scalar $\lambda$ is called an <strong>eigenvalue</strong> of $A$ if there exists a nonzero vector $v$ that satisfies</p>
+<p>$$Av = \lambda v$$</p>
+<p>The vector $v$ is called an eigenvector for $A$ corresponding to the eigenvalue $\lambda$. The eigenvalues of $A$ are obtained by solving $\det(A-\lambda I) = 0$</p>
+<a href="#keypoint-description"><h2 id="keypoint-description"><span class="hanchor" ariaLabel="Anchor"># </span>Keypoint Description</h2></a>
+<a href="#scale-invariant-features-sift"><h3 id="scale-invariant-features-sift"><span class="hanchor" ariaLabel="Anchor"># </span>Scale Invariant Features (SIFT)</h3></a>
+<p>David Lowe</p>
+<p>Invariant to translation, rotation, scale, and other imaging parameters. (Generally works for about ~20% change in viewpoint angle)</p>
+<p>Advantages:</p>
+<ul>
+<li>Locality: features are local (robust to occlusion and clutter)</li>
+<li>Distinctiveness: individual features can be matched to a large database of objects</li>
+<li>Quantity: many features can be generated (even for small objects)</li>
+<li>Efficiency: fast (close to real-time performance)</li>
+</ul>
+<p>Describes both a <strong>detector</strong> and <strong>descriptor</strong></p>
+<ol>
+<li>Multi-scale local extrema detection
+<ul>
+<li>Use difference of gradient pyramid (3 scales/octave, down-sample by a factor of 2 each octave)</li>
+</ul>
+</li>
+<li>Keypoint localization
+<ul>
+<li>We then remove low constrast or poorly localized keypoints. We can determine good corners by using the covariance matrix! (Threshold on magnitude of extremum, ratio of principal curvatures)</li>
+</ul>
+</li>
+<li>Orientation assignment
+<ul>
+<li>Create histogram of local gradient directions computed at selected scale multiplied by the gaussian kernel at the center</li>
+<li>Assign canonical orientation at peak of smoothed histogram (mode)</li>
+</ul>
+</li>
+<li>Keypoint description (SIFT Descriptor)
+<ul>
+<li>histogram of local gradient directions
+<ul>
+<li>(8x(4x4)) = 128 dims</li>
+<li>4x4 = 16 histograms</li>
+<li>8 orientations each</li>
+</ul>
+</li>
+<li>Normalized to unit length to reduce the effects of illumination change
+Robust to affine changes (rotation and scaling)</li>
+</ul>
+</li>
+</ol>
+<a href="#histogram-of-oriented-gradients-hog"><h3 id="histogram-of-oriented-gradients-hog"><span class="hanchor" ariaLabel="Anchor"># </span>Histogram of Oriented Gradients (HOG)</h3></a>
+<ul>
+<li>uses 8x8 cells and blocks which consist of 2x2 cells</li>
+<li>then for each cell, create a histogram of &lsquo;unsigned&rsquo; gradients
+<ul>
+<li>perform soft binning (adding to one bin also adds to neighbour bins)</li>
+</ul>
+</li>
+<li>concatenate then L2 normalize</li>
+<li>15x7x4x36 = 3780</li>
+</ul>
+<a href="#speeded-up-robust-features-surf"><h3 id="speeded-up-robust-features-surf"><span class="hanchor" ariaLabel="Anchor"># </span>&lsquo;Speeded Up&rsquo; Robust Features (SURF)</h3></a>
+<ul>
+<li>4x4 cell grid of 5x5 cells</li>
+<li>each cell is represented by 4 values
+<ol>
+<li>sum of all x derivatives</li>
+<li>sum of all y derivatives</li>
+<li>abs of 1</li>
+<li>abs of 2</li>
+</ol>
+</li>
+<li>use Haar wavelets filters (simple derivative filters where all black on one side and all white on the other, weighted by gaussian)</li>
+<li>4x4x4 = 64 dims</li>
+</ul>
+<a href="#object-recognition"><h2 id="object-recognition"><span class="hanchor" ariaLabel="Anchor"># </span>Object Recognition</h2></a>
+<ol>
+<li>Match each keypoint to the database of keypoints
+To find out probability of correct match, we can compare the ratio of distance between nearest neighbour and 2nd nearest neighbour. A threshold of 0.8 provides great separation.</li>
+<li>identify clusters of at least 3 features that agree on an object and pose
+Lowe uses a generalized Hough transform</li>
+<li>check each cluster found by performing detailed geometric fit of affine transformation to the model</li>
+<li>accept/reject interpretation accordingly</li>
+</ol>
+<a href="#approximate-nearest-neighbour"><h3 id="approximate-nearest-neighbour"><span class="hanchor" ariaLabel="Anchor"># </span>Approximate Nearest Neighbour</h3></a>
+<ul>
+<li>generally, finding nearest neighbour in high-dimensional data is linear in time (even for KD trees)</li>
+</ul>
+<a href="#transformations"><h3 id="transformations"><span class="hanchor" ariaLabel="Anchor"># </span>Transformations</h3></a>
+<p>Degrees of freedom (DOF)</p>
+<ol>
+<li>translation: 2</li>
+<li>rigid (euclidean): 3</li>
+<li>similarity: 4</li>
+<li>affine: 6</li>
+<li>projective: 8</li>
+</ol>
+
+
+    </article>
+    <hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+    
+      
+      
+      <li>
+        <a href="/thoughts/computer-vision/" data-ctx="Object detection/recognition (Template Matching, Keypoint Descriptors)" data-src="/thoughts/computer-vision" class="internal-link">Computer Vision</a>
+      </li>
+      
+      
+      
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="https://josephsemrai.com/js/graph.abd4bc2af3869a96524d7d23b76152c7.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Joseph Semrai using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2022</p>
+        <ul>
+            
+            <li><a href="https://josephsemrai.com/">Home</a></li>
+            <li><a href="https://twitter.com/josephsemrai">Twitter</a></li><li><a href="https://github.com/josephsemrai">Github</a></li><li><a href="https://www.linkedin.com/in/~joe/">LinkedIn</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

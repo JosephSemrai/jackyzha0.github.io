@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="Paper #2 for PHIL 451A
+Prompt 1: Is consciousness essentially a kind of information?
+ When we examine theories of consciousness, we find that we can divide the majority of theories into two major categories: process theories and vehicle theories1."
+  />
+  <title>
+    Consciousness is not Information
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  <meta property="og:url" content="https://josephsemrai.com" />
+  <meta property="og:title" content="" /> <meta
+  property="og:description" content="" />
+  <meta property="og:image" content="https://josephsemrai.com/res/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@josephsemrai" />
+  <meta name="twitter:title" content=""> <meta name="twitter:description"
+  content="" />
+  <meta name="twitter:image" content="https://josephsemrai.com/res/og-card.png" />
+
+  
+     
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    
+    
+    href="https://josephsemrai.com//icon.png"
+  /> 
+
+  
+                        
+  <link href="https://josephsemrai.com/styles.3f792f95b046b8a6c4dbf66a4412e3d0.min.css" rel="stylesheet" />
+
+  
+  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link" />
+
+  
+     
+  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
+   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://unpkg.com/@floating-ui/core@0.7.3"></script>
+  <script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>
+  
+  <script src="https://josephsemrai.com/js/popover.53ad9a087e3feeaaa12b63bfd02d923b.min.js"></script>
+
+  
+   
+  <script src="https://josephsemrai.com/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js"></script>
+    
+  <script src="https://josephsemrai.com/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js"></script>
+   
+
+  
+   
+  <script>
+    
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const lastVisit = localStorage.getItem('lastVisitTime')
+    const now = Date.now()
+    let show = 'true'
+    if (lastVisit) {
+      document.documentElement.setAttribute('visited', 'true')
+      const minElapsed = Math.ceil((now - parseInt(lastVisit)) / (1000 * 60))
+      show = (!isReducedMotion && minElapsed > 5) ? 'true' : 'false'
+    }
+    document.documentElement.setAttribute('show-animation', show)
+    localStorage.setItem('lastVisitTime', `${now}`)
+
+    const BASE_URL = "https://josephsemrai.com/"
+    const fetchData = Promise.all([
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.efa99fc23e91c5dd3ed94f616383b1ae.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.03879fa055a7ab82c6b3199ecfdff199.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      
+
+      
+      initPopover(
+        "https://josephsemrai.com",
+         true ,
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "https://josephsemrai.com",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":0.8,"opacityScale":3,"repelForce":2,"scale":1}
+          );
+
+        }
+      
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+   
+  <script type="module">
+    import { attachSPARouting } from "https:\/\/josephsemrai.com\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WDD4K02HML"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WDD4K02HML', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="https://josephsemrai.com/js/full-text-search.24827f874defbbc6d529926cbfcfb493.min.js"></script>
+
+
+
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script src="https://unpkg.com/cursor-chat"></script>
+
+<div class="singlePage">
+    
+    <header class="delay t-3">
+    <h1 id="page-title"><a href="https://josephsemrai.com/">josephsemrai.com</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+
+</header>
+
+
+    <article>
+      <h1>Consciousness is not Information</h1>
+      <p class="meta">
+        Last updated 
+Mar 13, 2022
+
+ 
+          
+<a href="https://github.com/josephsemrai/personal-hugo/tree/hugo/content/thoughts/Consciousness%20is%20not%20Information.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+    
+    <li><a href="https://josephsemrai.com/tags/fruit/">Fruit</a></li>
+    
+    <li><a href="https://josephsemrai.com/tags/PHIL451A/">PHIL451A</a></li>
+    
+</ul>
+
+      
+
+      
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<blockquote>
+<p>Paper #2 for PHIL 451A</p>
+<p>Prompt 1:  Is consciousness essentially a kind of information?</p>
+</blockquote>
+<p>When we examine theories of consciousness, we find that we can divide the majority of theories into two major categories: process theories and vehicle theories<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. I further borrow terminology from Velmans<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> to describe these as behaviourist and cognitivist approaches to consciousness respectively, and argue that consciousness under cognitivist approaches runs into quite a few glaring holes.</p>
+<p>Let us first begin by defining the two major categories of theories of consciousness.</p>
+<ol>
+<li>Process theories assume that consciousness depends on the functional or relational properties of representational vehicles<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, namely on the types of computations the vehicles engage in. Process theories are also referred to as cognitivist theorists &ndash; these theories can, without scientific loss, be translated into talk about <em>information processing</em><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</li>
+<li>Vehicle theories assume that consciousness is determined by intrinsic properties of representational vehicles<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. These theories are also referred to as behaviourist theorists &ndash; these theories can, without scientific loss, be translated into talk about <em>behaviour</em><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</li>
+</ol>
+<p>To ask whether consciousness is essentially a kind of information is to ask whether the cognitivist theories of consciousness should be considered true. I disagree with the cognitive theories of consciousness as they fail to adequately address several critical questions. To concretize my argument in real theories, I look to Chalmer&rsquo;s process theory<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> and Tononi&rsquo;s Information Integration Theory<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>.</p>
+<p>Both of these are deeply rooted in cognitivist theories of consciousness. For example, in IIT, consciousness of the system refers to the information generated above and beyond the information generated from the separate parts of the system<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>. Chalmer&rsquo;s process theory posits that information states can be realized physically and that these information states themselves are conscious<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<p>Yet, neither theory completely accounts for:</p>
+<ol>
+<li>Defining information in a manner at odds with how information is regularly defined</li>
+<li>How a serial 
+
+
+
+
+
+<a
+  href="/thoughts/Stream-of-Consciousness/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/Stream-of-Consciousness/">stream of consciousness</a> can arise from a parallel distributed network</li>
+<li>Information carrying in obviously non-conscious objects</li>
+<li>Brute optimization of its mathematical definition</li>
+</ol>
+<p>We expand on each of these in turn.</p>
+<p>Chalmers&rsquo; process theory starts by defining information in the world as having two aspects, physicality and phenomenality. Information then, is both a physical thing and has phenomenal intentionality (or what is is like to <em>be</em> information). In doing so, Chalmers defines information as having the property of being conscious. However, this is quite different from colloquially accepted and typical academic definitions of information. Information usually refers to <em>non-mental</em>, mind-independent entities that are embedded <em>in</em> the physical (e.g. a book or brain states). Pioneers of information theory like Claude Shannon and even colloquial usage of the term information agree with this definition. An important distinction between these two definitions is that while physical things encode and embed information, they themselves are not information. A book by itself is just an arrangement of paper and ink but it may carry information like the concept of Dante&rsquo;s <em>Inferno</em>. Thus, whatever Chalmers claims to be &lsquo;information&rsquo; cannot be the same information everyone else refers to<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> and so his conclusions on the basis of information cannot be valid.</p>
+<p>We then consider the seriality/stream problem in the context of Chalmers&rsquo; process theory. The &lsquo;stream&rsquo; character of human conscious experience seems to almost be at odds with the parallel distributed model of the mind with its various synapses and neurons that have no central center for keeping order.  Process theories of consciousness must therefore account for how seriality arises from the distributed nature of the mind<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>. Chalmers fails to do address this in his theory all-together. It is important to note that behaviourist theories avoid this all-together as behaviour is a <em>series</em> (or at least, very limited parallelism) of agent-environment interactions. Agents do not perform multiple complex interactions at once (e.g. eating and playing). Even for multi-tasking of simple interactions, most theories propose the concept of a bottle-neck or limiting capacity &ndash; more complex behaviours take more bandwidth and thus require more focus, required the need for serial execution.</p>
+<p>Last but not least, we turn to how Chalmers&rsquo; refutes information carrying in non-conscious objects. From earlier, Chalmers defines the ability to contain information states as the capacity for consciousness<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. Yet, there are clearly non-conscious objects, books for example, that clearly carry information but are not widely accepted as being conscious. Chalmers provides two options:</p>
+<ol>
+<li>Perhaps only some kinds of “physically realized information spaces” are conscious.</li>
+<li>Perhaps thermostats are conscious.
+Chalmers&rsquo; chooses the second option and suggests that “the level of organization at which consciousness &lsquo;winks out&rsquo; might be lower than a thermostat but higher than a rock.”<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> The resolution that Chalmers&rsquo; chose is quite unsatisfying.</li>
+</ol>
+<p>Tononi attempts to improve on Chalmers&rsquo; theory by proposing IIT<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. In this theory, information is defined as information that is specified by a system that is irreducible to that specified by its parts. That is, information is <em>integrated</em> information. In making this distinction, Tononi explicitly rejects Chalmer&rsquo;s choice of distinguishing information-carriers as conscious and instead chooses to define a subset of physically-realized information spaces (<em>integrated</em> information) as conscious. In doing so, IIT avoids the first and third pitfalls of Chalmers&rsquo; theory.</p>
+<p>However, IIT still has a major flaw in that it only claims to <em>correlate</em> integrated information $\Phi$ with consciousness: &ldquo;To recapitulate, the theory claims that consciousness corresponds to the capacity to integrate information.&rdquo;<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> Yet, we know that correlation is most definitely neither definition nor causation. Even while this is a glaring hole in what IIT claims to be, we can continue to show that even the definition of $\Phi$ itself is problematic.</p>
+<p>Roughly, $\Phi$ is large if the system has a lot interconnection between its components. In more technical terms, it is &ldquo;minimizing, over all subdivisions of your physical system into two parts A and B, some measure of the mutual information between A’s outputs and B’s inputs and vice versa.&rdquo; <sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> It is worth noting then that <em>any</em> sort of device that has some level of interconnection would be slightly conscious. According to Aaronson, Tononi seemed to accept this 
+
+
+
+
+
+<a
+  href="/thoughts/Panpsychism/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/Panpsychism/">panpsychist</a> implication and agree that thermostats have small but nonzero levels of consciousness. This clearly suffers the same unsatisfying conclusion that Chalmers arrived at earlier.</p>
+<p>However, even more problematic, is the fact that as this is a mathematical formula, it is susceptible to optimization (see: 
+
+
+
+
+
+<a
+  href="/thoughts/Goodharts-Law/"
+  rel="noopener" class="internal-link"
+  data-src="/thoughts/Goodharts-Law/">Goodhart&rsquo;s Law</a>). Aaronson shows that we can construct almost trivial examples where systems that are clearly not conscious exhibit ridiculously large values of integrated information. For example, we can hook together a large number of logic gates together all in ways that are highly interconnected and achieve levels of $\Phi$ that imply that over half of the information in the system is integrated information. As these logic gate systems (Aaronson details these as bipartite expander graphs) can be infinitely scalable, one could theoretically construct such a system with unbounded $\Phi$. Surely there is something problematic going on if we can say that a graph of logic gates is infinitely conscious.</p>
+<p>It is clear that information and information-processing based methods are brittle. Of course, there are alternatives to consider like Boris Kotchoubey&rsquo;s behaviourist approaches to consciousness that I believe are more sound, it is outside the scope of this paper to discuss their viability. Earlier, we posited that cognitive theories consciousness rely on consciousness as information or information-processing. In conclusion, I have shown that key cognitivist theories of consciousness like Chalmer&rsquo;s theory and Tononi&rsquo;s IIT have glaring flaws in attempting to measure and define consciousness. Thus, consciousness should not be considered a kind of information.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Pockett, Susan (2014). <em>Problems with theories that equate consciousness with information or information processing</em>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Velmans, M. (1991). <em>Is human information processing conscious?</em>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>Atkinson, A. P., Thomas, M. S. C., and Cleeremans, A. (2000). <em>Consciousness: mapping the theoretical landscape</em>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>Chalmers, D. J. (1996). <em>The Conscious Mind: in Search of a Fundamental Theory</em>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>Tononi, Giulio (2004). <em>An information integration theory of consciousness</em>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>Kotchoubey, Boris (2018). <em>Human Consciousness: Where Is It From and What Is It for</em>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p>Aaronson, Scott (2014). Why I Am Not An Integrated Information Theorist in <em>
+
+<a href="https://scottaaronson.blog/?p=1799" rel="noopener">https://scottaaronson.blog/?p=1799</a></em>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+
+    </article>
+    <hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      <li>
+        <a href="/posts/primacy-of-consciousness/" data-ctx="how theories like Giulio Tononi&#39;s IIT define information" data-src="/posts/primacy-of-consciousness" class="internal-link">On Consciousness</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/Integrated-Information-Theory-of-Consciousness-IIT/" data-ctx="a refutation against IIT" data-src="/thoughts/Integrated-Information-Theory-of-Consciousness-IIT" class="internal-link">Integrated Information Theory of Consciousness (IIT)</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/consciousness/" data-ctx="Consciousness is not Information" data-src="/thoughts/consciousness" class="internal-link">Consciousness</a>
+      </li>
+      
+      
+      
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="https://josephsemrai.com/js/graph.abd4bc2af3869a96524d7d23b76152c7.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Joseph Semrai using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2022</p>
+        <ul>
+            
+            <li><a href="https://josephsemrai.com/">Home</a></li>
+            <li><a href="https://twitter.com/josephsemrai">Twitter</a></li><li><a href="https://github.com/josephsemrai">Github</a></li><li><a href="https://www.linkedin.com/in/~joe/">LinkedIn</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>
