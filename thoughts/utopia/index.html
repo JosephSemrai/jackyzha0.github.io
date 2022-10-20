@@ -86,13 +86,13 @@ Is one even possible? In a scarce world with infinite wants, no."
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.efa99fc23e91c5dd3ed94f616383b1ae.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.7e9d14cb8eff3aa1fb59a8b4b728c3df.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.03879fa055a7ab82c6b3199ecfdff199.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.4ec2e40082f378effb9625a127163ec2.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
