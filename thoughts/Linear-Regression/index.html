@@ -86,13 +86,13 @@
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.7e9d14cb8eff3aa1fb59a8b4b728c3df.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.28d927f40738e72d4df040d7eb532eff.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.4ec2e40082f378effb9625a127163ec2.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.045a74cb83b9c2d3c20c98efa49f1ba7.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -377,6 +377,30 @@ Oct 5, 2022
   
   
 
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
 
 
 
@@ -494,6 +518,10 @@ $$</p>
 <p>We can instead minimize the $L_\infty$ norm which is convex but non-smooth. This effectively minimizes the highest error.</p>
 <p>The smooth approximation to the max function is the log-sum-exp function:</p>
 <p>$$\max_i { z_i } \approx \log( \sum_i \exp(z_i))$$</p>
+<a href="#penalizing-model-complexity"><h2 id="penalizing-model-complexity"><span class="hanchor" ariaLabel="Anchor"># </span>Penalizing Model Complexity</h2></a>
+<p>Optimize $score(p) = \frac 1 2 \lVert Z_p v - y \rVert^2 + p$ where $p$ is the degree of the polynomial.</p>
+<p>Other ones also exist which replace the $p$ term with $\lambda k$ where $k$ is the estimated degrees of freedom (for polynomials, $k = p + 1$). $\lambda$ controls how strongly we penalize complexity.</p>
+<p>$\lambda = 1$ is called the Akaike information criterion (AIC)</p>
 
 
     </article>
@@ -519,8 +547,22 @@ $$</p>
     
       
       
+      
+    
+      
+      
+      
+    
+      
+      
       <li>
-        <a href="/thoughts/supervised-learning/" data-ctx="thoughts/Linear Regression" data-src="/thoughts/supervised-learning" class="internal-link">Supervised learning</a>
+        <a href="/thoughts/feature-selection/" data-ctx="linear regression" data-src="/thoughts/feature-selection" class="internal-link">Feature Selection</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/thoughts/supervised-learning/" data-ctx="thoughts/Linear Regression#Penalizing Model Complexity" data-src="/thoughts/supervised-learning" class="internal-link">Supervised learning</a>
       </li>
       
       

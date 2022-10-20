@@ -86,13 +86,13 @@ Integrity of information is critical to relationships of trust as we saw in the 
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.7e9d14cb8eff3aa1fb59a8b4b728c3df.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.28d927f40738e72d4df040d7eb532eff.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.4ec2e40082f378effb9625a127163ec2.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.045a74cb83b9c2d3c20c98efa49f1ba7.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({

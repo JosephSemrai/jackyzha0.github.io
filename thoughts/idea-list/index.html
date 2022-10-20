@@ -85,13 +85,13 @@
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.7e9d14cb8eff3aa1fb59a8b4b728c3df.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.28d927f40738e72d4df040d7eb532eff.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.4ec2e40082f378effb9625a127163ec2.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.045a74cb83b9c2d3c20c98efa49f1ba7.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -822,6 +822,12 @@ Jun 17, 2021
 <li>
 
 <a href="https://kernel-mag.vercel.app/post/take-back-the-future" rel="noopener">https://kernel-mag.vercel.app/post/take-back-the-future</a></li>
+<li>
+
+<a href="https://rauno.me/" rel="noopener">https://rauno.me/</a></li>
+<li>
+
+<a href="https://www.thesolarmonk.com/posts/a-spacebar-for-the-web" rel="noopener">https://www.thesolarmonk.com/posts/a-spacebar-for-the-web</a></li>
 </ul>
 </li>
 <li>3d
@@ -1097,6 +1103,7 @@ Jun 17, 2021
 <li>Servers are just clients that are located in a particular position in the network, and that are not the source of truth for any data; these nodes serve only to reduce latency in the system by replicating information.</li>
 </ul>
 </li>
+<li>essay on epistemic play + jestermaxxing + mill’s take on why censorship is unethical</li>
 </ul>
 </li>
 </ul>
