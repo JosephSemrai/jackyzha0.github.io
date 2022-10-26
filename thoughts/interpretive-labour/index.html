@@ -86,13 +86,13 @@ There is a tradeoff between energy put into explaining an idea, and the energy n
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.28d927f40738e72d4df040d7eb532eff.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.a88f18a20621f4308ad6d9ee37584196.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.3926e3fa252ccffc4518fa486d017ba2.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.609724651ecdeef06091329101f9ec8a.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
