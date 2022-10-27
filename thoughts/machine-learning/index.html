@@ -7,11 +7,11 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="-&ndash; title: &ldquo;Machine Learning&rdquo; date: 2021-07-02T14:03:17-04:00 tags:
- sapling CPSC340   Theory Course notes on CPSC340 with Andreas Lehrmann and Mark Schmidt"
+    content="Theory Course notes on CPSC340 with Andreas Lehrmann and Mark Schmidt
+We produce a lot of data (see: [[thoughts/Data Capitalism|data capitalism]])"
   />
   <title>
-    josephsemrai.com
+    Machine Learning
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -86,13 +86,13 @@
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.a88f18a20621f4308ad6d9ee37584196.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.95c4296c95040a97a79ef1ef4b1f5e35.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.0893af17955e0fbf239f2d02d46e64e1.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.e1f893f9729437c1916f1bc7b09eeebf.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -237,10 +237,10 @@ if (!doNotTrack) {
 
 
     <article>
-      
+      <h1>Machine Learning</h1>
       <p class="meta">
         Last updated 
-Oct 12, 2022
+Jul 2, 2021
 
  
           
@@ -250,6 +250,10 @@ Oct 12, 2022
       </p>
       <ul class="tags">
     
+    <li><a href="https://josephsemrai.com/tags/sapling/">Sapling</a></li>
+    
+    <li><a href="https://josephsemrai.com/tags/CPSC340/">CPSC340</a></li>
+    
 </ul>
 
       
@@ -604,6 +608,65 @@ Oct 12, 2022
     
   
 
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
 
 
 
@@ -611,15 +674,7 @@ Oct 12, 2022
 
 
 
-<p>-&ndash;
-title: &ldquo;Machine Learning&rdquo;
-date: 2021-07-02T14:03:17-04:00
-tags:</p>
-<ul>
-<li>sapling</li>
-<li>CPSC340</li>
-</ul>
-<hr>
+
 <a href="#theory"><h2 id="theory"><span class="hanchor" ariaLabel="Anchor"># </span>Theory</h2></a>
 <p>Course notes on CPSC340 with Andreas Lehrmann and Mark Schmidt</p>
 <p>We produce a lot of data (see: <a href="/thoughts/Data-Capitalism" rel="noopener" class="internal-link" data-src="/thoughts/Data-Capitalism">data capitalism</a>)</p>
@@ -647,6 +702,7 @@ tags:</p>
 <li><a href="/thoughts/No-Free-Lunch-Theorem" rel="noopener" class="internal-link" data-src="/thoughts/No-Free-Lunch-Theorem">No Free Lunch Theorem</a></li>
 <li><a href="/thoughts/unsupervised-learning" rel="noopener" class="internal-link" data-src="/thoughts/unsupervised-learning">unsupervised learning</a></li>
 <li><a href="/thoughts/gradient-descent" rel="noopener" class="internal-link" data-src="/thoughts/gradient-descent">gradient descent</a></li>
+<li><a href="/thoughts/regularization" rel="noopener" class="internal-link" data-src="/thoughts/regularization">regularization</a></li>
 </ul>
 <p>Related background:</p>
 <ul>
@@ -775,7 +831,7 @@ tags:</p>
 <li>dramatically reduces number of learned parameters</li>
 </ul>
 </li>
-<li>regularization
+<li><a href="/thoughts/regularization" rel="noopener" class="internal-link" data-src="/thoughts/regularization">regularization</a>
 <ul>
 <li>input preturbations
 <ul>

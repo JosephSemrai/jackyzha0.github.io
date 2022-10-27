@@ -86,13 +86,13 @@
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.a88f18a20621f4308ad6d9ee37584196.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.95c4296c95040a97a79ef1ef4b1f5e35.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.0893af17955e0fbf239f2d02d46e64e1.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.e1f893f9729437c1916f1bc7b09eeebf.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -398,11 +398,12 @@ Oct 18, 2022
 <li>How can I speed up computation?</li>
 </ul>
 <p>This can help us to remove features. Models (like linear regression) can overfit with large $d$ so reducing $d$ to only useful factors may improve results.</p>
+<p>Generally, there are no right answers but there are wrong answers.</p>
 <a href="#association"><h2 id="association"><span class="hanchor" ariaLabel="Anchor"># </span>Association</h2></a>
 <p>For each feature $j$, compute correlation between feature values $x_j$ and $y$.</p>
 <p>Usually gives unsatisfactory results as it ignores variable interactions (e.g. if tacos make you sick, and you often eat tacos on Tuesdays, it will say “Tuesday” is relevant.)</p>
 <a href="#regression-weight"><h2 id="regression-weight"><span class="hanchor" ariaLabel="Anchor"># </span>Regression Weight</h2></a>
-<p>Fit <a href="/thoughts/Linear-Regression" rel="noopener" class="internal-link" data-src="/thoughts/Linear-Regression">linear regression</a> weights $w$ based on all features.</p>
+<p>Fit <a href="/thoughts/linear-regression" rel="noopener" class="internal-link" data-src="/thoughts/linear-regression">linear regression</a> weights $w$ based on all features.</p>
 <p>Take all features $j$ where weight $|w_j|$ is greater than a threshold</p>
 <p>Has major problems with collinearity</p>
 <p>$\hat y_i = w_1 \textrm{taco} + w_2 \textrm{tuesday} = 0\textrm{taco} + (w_1 + w_2) \textrm{tuesday}$</p>

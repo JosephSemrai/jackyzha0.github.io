@@ -6,7 +6,55 @@
     <description>Recent content in Thoughts on josephsemrai.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://josephsemrai.com/thoughts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://josephsemrai.com/thoughts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>program analysis</title>
+      <link>https://josephsemrai.com/thoughts/program-analysis/</link>
+      <pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/program-analysis/</guid>
+      <description> Concerns what a program does: analysis aim is to check statically/dynamically something about execution behaviours Is flow-sensitive: what the analysis does with a statement is dependent on control flow of the program  </description>
+    </item>
+    
+    <item>
+      <title>Fair Betting Quotient (FBQ)</title>
+      <link>https://josephsemrai.com/thoughts/fair-betting-quotient/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/fair-betting-quotient/</guid>
+      <description>Your fair betting quotient (FBQ) for A is p if you think that the following is a fair bet (you are willing to take either side):</description>
+    </item>
+    
+    <item>
+      <title>Gaussian RBFs</title>
+      <link>https://josephsemrai.com/thoughts/Gaussian-RBF/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/Gaussian-RBF/</guid>
+      <description>Non-parametric basis. Can think about it as a sum of gaussian &amp;lsquo;bumps&amp;rsquo;.
+Replace $x_i = (x_{i1}, x_{i2}, \dots, x_{in})$ with</description>
+    </item>
+    
+    <item>
+      <title>Hyper-parameter Optimization</title>
+      <link>https://josephsemrai.com/thoughts/hyper-parameter-optimization/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/hyper-parameter-optimization/</guid>
+      <description>How do we efficiently find the “best” hyper-parameters?
+More complicated models have even more hyper-parameters. This makes searching all values expensive (increases over-fitting risk)</description>
+    </item>
+    
+    <item>
+      <title>I-Confluence</title>
+      <link>https://josephsemrai.com/thoughts/I-Confluence/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/I-Confluence/</guid>
+      <description>Martin Kleppmann and Heidi Howard:  Byzantine Eventual Consistency and the Fundamental Limits of Peer-to-Peer Databases
+Kleppmann and Howard prove an equivalent result which states that $\mathcal I$-confluence is a necessary and sufficient condition for the existence of a Byzantine eventual consistency replication algorithm</description>
+    </item>
+    
     <item>
       <title>Dutch Book</title>
       <link>https://josephsemrai.com/thoughts/Dutch-Book/</link>
@@ -15,6 +63,16 @@
       <guid>https://josephsemrai.com/thoughts/Dutch-Book/</guid>
       <description>A Dutch Book is a set of bets that you consider individually fair, but which collectively guarantee a loss
 This usually happens when people commit probabilistic fallacies (e.</description>
+    </item>
+    
+    <item>
+      <title>Regularization</title>
+      <link>https://josephsemrai.com/thoughts/regularization/</link>
+      <pubDate>Wed, 19 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/regularization/</guid>
+      <description>A method for controlling [[thoughts/complexity|complexity]]. Our main tools:
+ Model averaging (e.g. [[thoughts/Ensemble method|ensemble methods]]) Regularization (this)  When we have multiple models with the same training models, we should pick models that are more conservative (e.</description>
     </item>
     
     <item>
@@ -28,7 +86,7 @@ This usually happens when people commit probabilistic fallacies (e.</description
     </item>
     
     <item>
-      <title>intellectual property</title>
+      <title>Intellectual Property</title>
       <link>https://josephsemrai.com/thoughts/intellectual-property/</link>
       <pubDate>Sun, 16 Oct 2022 00:00:00 +0000</pubDate>
       
@@ -48,10 +106,10 @@ Gradient descent is essentially an iterative optimization algorithm that takes a
     
     <item>
       <title>Linear Regression</title>
-      <link>https://josephsemrai.com/thoughts/Linear-Regression/</link>
+      <link>https://josephsemrai.com/thoughts/linear-regression/</link>
       <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://josephsemrai.com/thoughts/Linear-Regression/</guid>
+      <guid>https://josephsemrai.com/thoughts/linear-regression/</guid>
       <description>Vector dimensions:
  $w$ is $(d, 1)$ (weights) $y$ is $(n,1)$ (targets) $x_i$ is $(d, 1)$ (features) $X$ is $(n,d)$ each row is $x_i^T$  Linear regression makes predictions $\hat y_i$ using a linear function of $x_i$: $\hat y_i = w^Tx_i$</description>
     </item>
@@ -249,7 +307,7 @@ They work by taking a vote from a set of deep [[thoughts/decision tree|decision 
       
       <guid>https://josephsemrai.com/thoughts/DSL/</guid>
       <description>Implementation Stages
- Tokenization String -&amp;gt; [Token]  Makes defining and recognizing correct sequences easier Sometimes called lexing   Parsing [Token] -&amp;gt; ParseTree  A tree that represents a successful parsing of a sequence of tokens   (optional) AST Conversion ParseTree -&amp;gt; AST (optional) Static Checks AST -&amp;gt; AST Evaluate AST -&amp;gt; Result  Run the input or generate code for it (optional) Dynamic Checks    Grammar Rules e.</description>
+ Tokenization String -&amp;gt; [Token]  Makes defining and recognizing correct sequences easier Sometimes called lexing   Parsing [Token] -&amp;gt; ParseTree  A tree that represents a successful parsing of a sequence of tokens   (optional) AST Conversion ParseTree -&amp;gt; AST (optional) Static Checks AST -&amp;gt; AST  See also: [[thoughts/program analysis]]   Evaluate AST -&amp;gt; Result  Run the input or generate code for it (optional) Dynamic Checks    Grammar Rules e.</description>
     </item>
     
     <item>
@@ -345,8 +403,7 @@ Notation Generally column major
       <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://josephsemrai.com/thoughts/data-mining/</guid>
-      <description>Typical steps of data mining
- Learn about the application Identify data mining task Collect data Clean and preprocess the data Transform data or select useful subsets Choose data mining algorithm Data mining Evaluate visualize and interpret results Use results for profit or other goals  In a table</description>
+      <description>Data mining is a way to generate new information by combining facts found in multiple transactions, and it can also be a way to predict future events.</description>
     </item>
     
     <item>
@@ -880,8 +937,7 @@ Each node has an identifier which is the result of hashing the node&amp;rsquo;s 
       <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://josephsemrai.com/thoughts/privacy/</guid>
-      <description>Conflicting need between companies and users
- Companies want to use data to improve their products Users want to protect their privacy  Data anonymization isn&amp;rsquo;t enough.</description>
+      <description>Definitions  Restricting access to information or property to what you wouldn&amp;rsquo;t willingly give away in a particular context  Specifically, recognizing that privacy is contextual (Nissembaum) The context of your privacy—what’s being revealed to whom and for what reason—utterly changed and you had no say in it.</description>
     </item>
     
     <item>
@@ -3720,7 +3776,8 @@ How do we prevent the tragedy of the commons, help fund public goods, and incent
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://josephsemrai.com/thoughts/rationality/</guid>
-      <description>Bounded rationality: the choices that people make attempt to maximize benefit and minimize cost are imperfect: humans have a hard time precisely estimating benefit and cost and thus use imperfect heuristics to pick the most promising choices.</description>
+      <description>An act is rational (roughly) if it is most likely to maximize satisfaction of the agent’s preferences or [[thoughts/utility|utility]].
+Bounded rationality: the choices that people make attempt to maximize benefit and minimize cost are imperfect: humans have a hard time precisely estimating benefit and cost and thus use imperfect heuristics to pick the most promising choices.</description>
     </item>
     
     <item>
@@ -4537,6 +4594,16 @@ Dreyfus Dreyfus believed that, for any AI system to achieve any sort of general 
     </item>
     
     <item>
+      <title>Machine Learning</title>
+      <link>https://josephsemrai.com/thoughts/machine-learning/</link>
+      <pubDate>Fri, 02 Jul 2021 14:03:17 -0400</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/machine-learning/</guid>
+      <description>Theory Course notes on CPSC340 with Andreas Lehrmann and Mark Schmidt
+We produce a lot of data (see: [[thoughts/Data Capitalism|data capitalism]])</description>
+    </item>
+    
+    <item>
       <title>Semantics</title>
       <link>https://josephsemrai.com/thoughts/semantics/</link>
       <pubDate>Fri, 02 Jul 2021 13:49:27 -0400</pubDate>
@@ -4689,7 +4756,7 @@ Mostly about maintenance of cities and parallels with maintaining software.</des
       <pubDate>Thu, 17 Jun 2021 00:33:42 -0400</pubDate>
       
       <guid>https://josephsemrai.com/thoughts/idea-list/</guid>
-      <description>Technical  video editor with auto-generated snap points rotmg but actually good lol  dodge mechanic no instakill, should be iframes and way less health (similar to EtG) keep soulbound mechanic no screen rotation multi-floor dungeons, take more inspo from rogue-lites should have one free key a day   latency based quorum sensing, similar to how bacteria release a particular molecule and behave differently if sensors of the molecule are particularly active something with https://openai.</description>
+      <description>Technical   https://blog.adamant-lang.org/2019/rust-lifetime-visualization-ideas/ but with vim gutters and program slicing video editor with auto-generated snap points rotmg but actually good lol  dodge mechanic no instakill, should be iframes and way less health (similar to EtG) keep soulbound mechanic no screen rotation multi-floor dungeons, take more inspo from roguelites should have one free key a day actual good graveyard mechanics to look at past runs/chars   latency based quorum sensing, similar to how bacteria release a particular molecule and behave differently if sensors of the molecule are particularly active something with https://openai.</description>
     </item>
     
     <item>
@@ -4885,16 +4952,6 @@ Discussion  &amp;ldquo;I want hackathons to embody a starting point not a set ti
       
       <guid>https://josephsemrai.com/thoughts/language-development/</guid>
       <description>Approaches to study of language development  Language socialization: A description of children’s language use in social contexts and an account of the social processes by which children come to use language in the manner of their culture Linguistic: the Language Acquisition Device (LAD) must contain some knowledge of the structure of language in order for language acquisition to be possible &amp;ndash; this innate knowledge cannot be specific to any particular language thus it is a Universal Grammar (UG) Learnability approach: focuses on explaining the fact that language is acquired (i.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://josephsemrai.com/thoughts/machine-learning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://josephsemrai.com/thoughts/machine-learning/</guid>
-      <description>-&amp;ndash; title: &amp;ldquo;Machine Learning&amp;rdquo; date: 2021-07-02T14:03:17-04:00 tags:
- sapling CPSC340   Theory Course notes on CPSC340 with Andreas Lehrmann and Mark Schmidt</description>
     </item>
     
     <item>

@@ -6,7 +6,37 @@
     <description>Recent content in CPSC340 on josephsemrai.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://josephsemrai.com/tags/CPSC340/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://josephsemrai.com/tags/CPSC340/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gaussian RBFs</title>
+      <link>https://josephsemrai.com/thoughts/Gaussian-RBF/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/Gaussian-RBF/</guid>
+      <description>Non-parametric basis. Can think about it as a sum of gaussian &amp;lsquo;bumps&amp;rsquo;.
+Replace $x_i = (x_{i1}, x_{i2}, \dots, x_{in})$ with</description>
+    </item>
+    
+    <item>
+      <title>Hyper-parameter Optimization</title>
+      <link>https://josephsemrai.com/thoughts/hyper-parameter-optimization/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/hyper-parameter-optimization/</guid>
+      <description>How do we efficiently find the “best” hyper-parameters?
+More complicated models have even more hyper-parameters. This makes searching all values expensive (increases over-fitting risk)</description>
+    </item>
+    
+    <item>
+      <title>Regularization</title>
+      <link>https://josephsemrai.com/thoughts/regularization/</link>
+      <pubDate>Wed, 19 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/regularization/</guid>
+      <description>A method for controlling [[thoughts/complexity|complexity]]. Our main tools:
+ Model averaging (e.g. [[thoughts/Ensemble method|ensemble methods]]) Regularization (this)  When we have multiple models with the same training models, we should pick models that are more conservative (e.</description>
+    </item>
+    
     <item>
       <title>Feature Selection</title>
       <link>https://josephsemrai.com/thoughts/feature-selection/</link>
@@ -25,6 +55,26 @@
       <guid>https://josephsemrai.com/thoughts/gradient-descent/</guid>
       <description>When we minimize or maximize a function, we call it optimization.
 Gradient descent is essentially an iterative optimization algorithm that takes a guess and refines it using the gradient to make a better guess.</description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>https://josephsemrai.com/thoughts/linear-regression/</link>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/linear-regression/</guid>
+      <description>Vector dimensions:
+ $w$ is $(d, 1)$ (weights) $y$ is $(n,1)$ (targets) $x_i$ is $(d, 1)$ (features) $X$ is $(n,d)$ each row is $x_i^T$  Linear regression makes predictions $\hat y_i$ using a linear function of $x_i$: $\hat y_i = w^Tx_i$</description>
+    </item>
+    
+    <item>
+      <title>Outlier detection</title>
+      <link>https://josephsemrai.com/thoughts/outlier-detection/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/outlier-detection/</guid>
+      <description>Find observations that are unusually different from the others (aka anomaly detection).
+Why? We may want to remove outliers, or be interested in the outliers themselves (security)</description>
     </item>
     
     <item>
@@ -171,6 +221,16 @@ Notation Generally column major
       
       <guid>https://josephsemrai.com/thoughts/supervised-learning/</guid>
       <description>Input: take features of examples and corresponding labels as inputs Output: a model that can accurately predict the labels of new examples  Generally, the most successful machine learning technique (with the exception of games)</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://josephsemrai.com/thoughts/machine-learning/</link>
+      <pubDate>Fri, 02 Jul 2021 14:03:17 -0400</pubDate>
+      
+      <guid>https://josephsemrai.com/thoughts/machine-learning/</guid>
+      <description>Theory Course notes on CPSC340 with Andreas Lehrmann and Mark Schmidt
+We produce a lot of data (see: [[thoughts/Data Capitalism|data capitalism]])</description>
     </item>
     
   </channel>

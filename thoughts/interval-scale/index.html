@@ -86,13 +86,13 @@ Assign to each outcome $x$ a value $v(x)$ such that $v(x) \geq v(y) \iff x \geq 
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.a88f18a20621f4308ad6d9ee37584196.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.95c4296c95040a97a79ef1ef4b1f5e35.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.0893af17955e0fbf239f2d02d46e64e1.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.e1f893f9729437c1916f1bc7b09eeebf.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -415,6 +415,9 @@ Oct 3, 2022
 <a href="#von-neumann-morgenstern-theorem-vnm"><h2 id="von-neumann-morgenstern-theorem-vnm"><span class="hanchor" ariaLabel="Anchor"># </span>von Neumann-Morgenstern Theorem (vNM)</h2></a>
 <p>We need interval scales for most of the rules for <a href="/thoughts/Decisions-under-ignorance" rel="noopener" class="internal-link" data-src="/thoughts/Decisions-under-ignorance">DUI</a>, and we need them for <a href="/thoughts/Decisions-under-risk" rel="noopener" class="internal-link" data-src="/thoughts/Decisions-under-risk">DUR</a>. vNM tells us how to construct an interval utility scale.</p>
 <p>We find your utility for $x$ by measuring the risks that you are willing to take to get $x$. vNM shows that your utility for a lottery is equal to its expected utility.</p>
+<blockquote>
+<p>If your preferences have enough structure (i.e., if they satisfy the vNM conditions), then they can be represented by a utility function u (unique up to positive linear transformation) which has the expected utility property.</p>
+</blockquote>
 <a href="#lotteries"><h3 id="lotteries"><span class="hanchor" ariaLabel="Anchor"># </span>Lotteries</h3></a>
 <ul>
 <li>We have a set of basic prizes/outcomes</li>
