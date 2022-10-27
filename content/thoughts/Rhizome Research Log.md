@@ -9,6 +9,38 @@ tags:
 I think research logs tend to generally focus too much on what one did rather than what one felt. This log aspires to have a healthy mix of both.
 
 ## October
+### October 24th
+- privacy preserving crdts??
+- turns out automerge is actually fast now
+- ed25519 should be able to sign + verify upwards of 100k/s on a 1 GHz processor so i need to make some improvements
+- improve predecessor check
+
+### October 23rd
+- [Another great talk on WNFS](https://www.youtube.com/watch?v=-f4cH_HQU4U) by Brooklyn Zelenka
+	- The whole 'ask for permission' thing isn't actually new!
+	- Our phones already do this: "Google Photos is asking permission to access your camera roll"
+- [New Directions in Cloud Programming](https://www.cidrdb.org/cidr2021/papers/cidr2021_paper16.pdf)
+	- The way we write distributed systems today is like writing assembly by hand -- incredibly error prone
+	- We need projects like Bloom/Hydro that help with 'compiling away' those concurrency semantics
+
+### October 22nd
+- Had a random question about a paper that Kleppmann wrote and just straight up messaged him on Twitter LOL totally not expecting him to respond
+	- He did! Within just a few hours and helped to confirm that I did in fact need to sign messages using [[thoughts/Asymmetric Key Cryptography|asymmetric cryptography]] to prevent forgery
+- Also, Nalin helped to clarify a lot of my understanding for cryptography which was super nice of him :))
+- Finally finished implementing tests for BFT and... it seems to work?? Kinda bonkers that I've been working on this project for almost 2 months now. Probably the most technically involved project I've done that integrates so much stuff I've learned in the past few months in systems design, networking, cryptography, and information theory
+	- Just need to finish up hashgraph reconciliation and the JSON aspect of the CRDT and should be good to go
+- Thinking about a potential sharded/partitioned design for a triple store DB
+	- Using distance metrics like [[thoughts/Kademlia DHT]] does?
+
+### October 20th
+- Started writing post on [[posts/bft-json-crdt|a BFT JSON CRDT]]
+- Ran into a potential problem with message forgery...
+	- Seems like [Kleppmanns's Paper](https://martin.kleppmann.com/papers/bft-crdt-papoc22.pdf) doesn't address cases where, say a Byzantine node tries to send a message *on behalf* of another node (as it knows the unique IDs of other nodes) and forges an update.
+	- This is possible as the unique ID doesn't have any other properties that guarantee that only that the node with the ID can send that message.
+	- We would potentially need some sort of [[thoughts/Public-key Infrastructure|PKI]] assumption where the unique ID of a node is its public key and the ID is the signed digest of the message
+- This is (sort of) confirmed in [Kleppmann's 2020 paper](https://arxiv.org/pdf/2012.00472.pdf)
+	- "We assume that each replica has a distinct private key that can be used for digital signatures, and that the corresponding public key is known to all replicas. We assume that no replica knows the private key of another replica, and thus signatures cannot be forged"
+
 ### October 19th
 - Picked up *Seeing Like A State* again, it feels a lot more relevant to my research now for some reason
 	-  We can think of a [[thoughts/RDF|triple store]] as a distributed and fragmented SQL database, where instead of tables with rows and value, we have entities with attributes and values.
@@ -147,6 +179,7 @@ I think research logs tend to generally focus too much on what one did rather th
 		- The only way that is possible is if the client intentionally delays its view of the world in relation to what it’s receiving from the server.
 	2. **Extrapolation**: What happens when the network packet containing the next snapshot is delayed or lost and the client runs out of states to interpolate between? Then it’s forced to do what it normally tries to avoid: extrapolate or guess where the objects will be if they keep moving the same way they’re currently moving.
 	3. **Prediction**: The only exception here is player input. Instead of waiting for the server to do that and send back a snapshot containing that information, the client also immediately performs the same player movement locally. In this case there’s no interpolation - the move commands are applied onto the latest snapshot received from the server and the results can be seen on the screen immediately. In a way this means that each player lives in the future on their own machine, when compared to the rest of the world, which is behind because of the network latency and the delay needed for interpolation.
+- See also: [GGPO](https://en.wikipedia.org/wiki/GGPO) which is heavily used in real-time fighting games
 
 ### August 30th
 - [A Graph-Based Firebase](https://stopa.io/post/296)

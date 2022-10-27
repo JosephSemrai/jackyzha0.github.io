@@ -1,4 +1,4 @@
-\---
+---
 title: "Machine Learning"
 date: 2021-07-02T14:03:17-04:00
 tags:
@@ -29,6 +29,7 @@ Main topics:
 - [[thoughts/No Free Lunch Theorem]]
 - [[thoughts/unsupervised learning]]
 - [[thoughts/gradient descent]]
+- [[thoughts/regularization]]
 
 Related background:
 - [[thoughts/linear algebra|Linear Algebra]]
@@ -83,7 +84,7 @@ Related background:
 -   sparse connectivity
     -   heuristic → only local pixels matter
     -   dramatically reduces number of learned parameters
--   regularization
+-   [[thoughts/regularization]]
     -   input preturbations
         -   rotations/scaling/transformations
         -   noise

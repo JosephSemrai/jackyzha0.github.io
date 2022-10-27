@@ -14,13 +14,15 @@ Find the features (columns) of ‘X’ that are important for predicting ‘y’
 
 This can help us to remove features. Models (like linear regression) can overfit with large $d$ so reducing $d$ to only useful factors may improve results.
 
+Generally, there are no right answers but there are wrong answers.
+
 ## Association
 For each feature $j$, compute correlation between feature values $x_j$ and $y$.
 
 Usually gives unsatisfactory results as it ignores variable interactions (e.g. if tacos make you sick, and you often eat tacos on Tuesdays, it will say “Tuesday” is relevant.)
 
 ## Regression Weight
-Fit [[thoughts/Linear Regression|linear regression]] weights $w$ based on all features.
+Fit [[thoughts/linear regression|linear regression]] weights $w$ based on all features.
 
 Take all features $j$ where weight $|w_j|$ is greater than a threshold
 
