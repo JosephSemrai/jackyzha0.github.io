@@ -87,13 +87,13 @@ When evaluating, we often need to quantify what outcomes are more [[thoughts/val
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.95c4296c95040a97a79ef1ef4b1f5e35.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.5ddd1e9ca61b61d63072e91fef928ea8.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.e1f893f9729437c1916f1bc7b09eeebf.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.1929e30b2312de2bb4c92af0684b1242.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -265,6 +265,12 @@ Sep 23, 2022
 
 
 
+
+  
+  
+
+  
+  
 
   
   
@@ -748,6 +754,19 @@ You should be willing to pay any price to play!</p>
 </ol>
 </li>
 </ol>
+<a href="#two-envelope-paradox"><h3 id="two-envelope-paradox"><span class="hanchor" ariaLabel="Anchor"># </span>Two-Envelope Paradox</h3></a>
+<p>A trustworthy informant tells you that one of the envelopes contains exactly twice as much as the other, but the informant does not tell you which is which. Since this is all you know, you decide to pick an envelope at random. Let us say you pick envelope A. Just before you open envelope A you are offered to swap and take envelope B instead.</p>
+<p>Given what you know, both possibilities are equally likely. Hence, the expected monetary value of swapping to B is $\frac 1 2 2x + \frac 1 2 \frac x 2 = \frac 5 4 x$. Since $\frac 5 4 x &gt; x$, it is rational to take B instead of A. But you can apply the same argument to arrive at a contradictory claim that you should take A instead of B.</p>
+<p>Limit Counterargument</p>
+<ul>
+<li>The present formulation of the paradox presupposes that there is no upper limit to how much money there is in the world</li>
+<li>Suppose that there indeed is some upper limit L to how much money there is in the world.
+<ul>
+<li>It then follows that no envelope can contain more than (2/3)L</li>
+<li>The other envelope would be certain to contain (1/3)L</li>
+</ul>
+</li>
+</ul>
 
 
     </article>

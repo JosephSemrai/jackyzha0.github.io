@@ -2,20 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://josephsemrai.com/thoughts/program-analysis/</loc>
-    <lastmod>2022-10-25T13:11:11-07:00</lastmod>
+    <loc>https://josephsemrai.com/thoughts/formality-considered-harmful/</loc>
+    <lastmod>2022-11-01T15:07:06-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/tags/</loc>
-    <lastmod>2022-10-26T00:46:37-07:00</lastmod>
+    <lastmod>2022-11-01T15:07:06-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/</loc>
-    <lastmod>2022-10-25T13:11:11-07:00</lastmod>
+    <lastmod>2022-11-01T15:07:06-07:00</lastmod>
+  </url><url>
+    <loc>https://josephsemrai.com/thoughts/causal-decision-theory/</loc>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/tags/CPSC340/</loc>
-    <lastmod>2022-10-24T13:34:59-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
+  </url><url>
+    <loc>https://josephsemrai.com/thoughts/linear-classification/</loc>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
+  </url><url>
+    <loc>https://josephsemrai.com/thoughts/multi-class-classification/</loc>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
+  </url><url>
+    <loc>https://josephsemrai.com/thoughts/Newcombs-Problem/</loc>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
+  </url><url>
+    <loc>https://josephsemrai.com/tags/PHIL321A/</loc>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
+  </url><url>
+    <loc>https://josephsemrai.com/thoughts/probabilistic-classifier/</loc>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
+  </url><url>
+    <loc>https://josephsemrai.com/thoughts/SVM/</loc>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
+  </url><url>
+    <loc>https://josephsemrai.com/thoughts/program-analysis/</loc>
+    <lastmod>2022-10-27T16:01:36-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/fair-betting-quotient/</loc>
-    <lastmod>2022-10-22T20:36:43-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Gaussian-RBF/</loc>
     <lastmod>2022-10-22T20:36:43-07:00</lastmod>
@@ -23,17 +47,14 @@
     <loc>https://josephsemrai.com/thoughts/hyper-parameter-optimization/</loc>
     <lastmod>2022-10-22T20:36:43-07:00</lastmod>
   </url><url>
-    <loc>https://josephsemrai.com/tags/PHIL321A/</loc>
-    <lastmod>2022-10-22T20:36:43-07:00</lastmod>
-  </url><url>
     <loc>https://josephsemrai.com/thoughts/I-Confluence/</loc>
     <lastmod>2022-10-22T20:36:43-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Dutch-Book/</loc>
-    <lastmod>2022-10-22T20:36:43-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/regularization/</loc>
-    <lastmod>2022-10-24T13:34:59-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/feature-selection/</loc>
     <lastmod>2022-10-24T13:34:59-07:00</lastmod>
@@ -48,7 +69,7 @@
     <lastmod>2022-10-17T18:46:08-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/linear-regression/</loc>
-    <lastmod>2022-10-24T13:34:59-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/interval-scale/</loc>
     <lastmod>2022-10-22T20:36:43-07:00</lastmod>
@@ -69,7 +90,7 @@
     <lastmod>2022-10-17T18:46:08-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/hierarchical-clustering/</loc>
-    <lastmod>2022-10-03T14:55:09-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/K-means/</loc>
     <lastmod>2022-09-30T21:34:02-07:00</lastmod>
@@ -78,7 +99,7 @@
     <lastmod>2022-10-06T12:02:08-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/clustering/</loc>
-    <lastmod>2022-10-17T18:46:08-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Kant/</loc>
     <lastmod>2022-09-28T12:30:03-07:00</lastmod>
@@ -93,7 +114,7 @@
     <lastmod>2022-09-23T14:12:18-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Decisions-under-risk/</loc>
-    <lastmod>2022-10-03T14:55:09-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Ensemble-method/</loc>
     <lastmod>2022-09-23T14:12:18-07:00</lastmod>
@@ -135,10 +156,10 @@
     <lastmod>2022-10-17T18:46:08-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/probability/</loc>
-    <lastmod>2022-10-19T11:50:15-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/data-mining/</loc>
-    <lastmod>2022-10-25T13:11:11-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/exploratory-data-analysis/</loc>
     <lastmod>2022-09-19T11:50:44-04:00</lastmod>
@@ -147,7 +168,7 @@
     <lastmod>2022-10-24T13:34:59-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Decision-theory/</loc>
-    <lastmod>2022-10-22T20:36:43-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Evolutionary-game-theory/</loc>
     <lastmod>2022-09-12T12:49:00-07:00</lastmod>
@@ -159,7 +180,7 @@
     <lastmod>2022-10-01T15:10:39-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/posts/</loc>
-    <lastmod>2022-10-22T20:36:43-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/computer-networking/</loc>
     <lastmod>2022-08-21T09:08:12-04:00</lastmod>
@@ -294,7 +315,7 @@
     <lastmod>2022-07-17T12:49:24-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/identity/</loc>
-    <lastmod>2022-08-08T16:06:38-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/posts/digital-identity/</loc>
     <lastmod>2022-08-11T15:40:38-07:00</lastmod>
@@ -312,7 +333,7 @@
     <lastmod>2022-08-16T14:44:36-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/privacy/</loc>
-    <lastmod>2022-10-25T13:11:11-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/visualization/</loc>
     <lastmod>2022-07-12T12:39:42-07:00</lastmod>
@@ -498,7 +519,7 @@
     <lastmod>2022-05-06T20:24:04-04:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/causality/</loc>
-    <lastmod>2022-07-10T11:26:57-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/clocks/</loc>
     <lastmod>2022-07-16T15:36:23-07:00</lastmod>
@@ -534,7 +555,7 @@
     <lastmod>2022-07-07T15:30:17-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Rhizome-Research-Log/</loc>
-    <lastmod>2022-10-24T13:34:59-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Solana/</loc>
     <lastmod>2022-08-08T16:19:02-07:00</lastmod>
@@ -915,7 +936,7 @@
     <lastmod>2022-08-08T16:06:38-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Projects/</loc>
-    <lastmod>2022-10-12T20:49:52-07:00</lastmod>
+    <lastmod>2022-11-01T15:07:06-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Brains-in-a-Vat/</loc>
     <lastmod>2021-12-25T21:02:46-05:00</lastmod>
@@ -1053,7 +1074,7 @@
     <lastmod>2022-02-26T22:40:18-08:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/object-classification/</loc>
-    <lastmod>2022-10-17T18:46:08-07:00</lastmod>
+    <lastmod>2022-11-01T10:12:30-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/object-detection/</loc>
     <lastmod>2022-04-02T22:14:31-07:00</lastmod>
@@ -1347,7 +1368,7 @@
     <lastmod>2022-06-29T12:23:47-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/game-theory/</loc>
-    <lastmod>2022-09-23T14:12:18-07:00</lastmod>
+    <lastmod>2022-10-29T16:55:15-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/Post-It-Note-City/</loc>
     <lastmod>2022-02-15T13:30:45-05:00</lastmod>
@@ -1425,7 +1446,7 @@
     <lastmod>2022-07-30T21:48:56-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/posts/networked-thought/</loc>
-    <lastmod>2022-08-18T08:52:00-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/boundary-object/</loc>
     <lastmod>2022-02-15T13:30:45-05:00</lastmod>
@@ -1470,7 +1491,7 @@
     <lastmod>2021-12-25T21:02:46-05:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/machine-learning/</loc>
-    <lastmod>2022-10-22T20:36:43-07:00</lastmod>
+    <lastmod>2022-10-28T13:26:46-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/thoughts/semantics/</loc>
     <lastmod>2022-06-29T12:23:47-07:00</lastmod>
@@ -1623,7 +1644,7 @@
     <lastmod>2022-01-30T22:17:58-08:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/posts/a-failure-resume/</loc>
-    <lastmod>2022-10-22T20:36:43-07:00</lastmod>
+    <lastmod>2022-10-27T16:01:36-07:00</lastmod>
   </url><url>
     <loc>https://josephsemrai.com/posts/docker/</loc>
     <lastmod>2021-12-25T21:02:46-05:00</lastmod>

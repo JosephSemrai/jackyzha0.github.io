@@ -85,13 +85,13 @@
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.95c4296c95040a97a79ef1ef4b1f5e35.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.5ddd1e9ca61b61d63072e91fef928ea8.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.e1f893f9729437c1916f1bc7b09eeebf.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.1929e30b2312de2bb4c92af0684b1242.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -543,12 +543,12 @@ Jul 22, 2021
 <p>I&rsquo;ve started developing a process to better manage my process for information intake.</p>
 <a href="#seeds"><h3 id="seeds"><span class="hanchor" ariaLabel="Anchor"># </span>Seeds</h3></a>
 <p>I am a person who needs a very low friction way to dump new ideas and things to look at in the future.</p>
-<p>I use 
+<p>I built 
 
-<a href="https://chrome.google.com/webstore/detail/draft-by-slite/ljkidlijlaapmiilabpldhmhekeionfh?hl=en" rel="noopener">Draft</a> by Slite to have a &lsquo;scratch space&rsquo; in my new tab page where I have my running list of todos, temporary thoughts, and things to read in the next little bit. It&rsquo;s my Apple Notes for my laptop. I use 
+<a href="https://github.com/jackyzha0/tabspace" rel="noopener">TabSpace</a> to be a &lsquo;scratch space&rsquo; in my new tab page where I have my running list of todos, temporary thoughts, and things to read in the next little bit. It&rsquo;s the Apple Notes for my laptop. I use 
 
 <a href="https://curius.app/" rel="noopener">Curius</a> to keep a backlog of things that are interesting but not interesting enough for me to read at this exact moment.</p>
-<p>Actually, on reflection, I tend to generally bookmark things for later then revisit them when I have time. For 
+<p>I tend to generally bookmark things for later then revisit them when I have time. For 
 
 
 

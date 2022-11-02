@@ -7,8 +7,8 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="We want to assign examples to &ldquo;groups&rdquo;.
-Methods  [[thoughts/K-means|K-means]] (most popular) [[thoughts/density-based clustering]] Ensemble Clustering  Like [[thoughts/Random Forest|random forest]] but for voting for clustering This is problematic because of the label switching problem &ndash; we can get clustering with permuted labels on each initialisation  Don&rsquo;t vote on what specific class each cluster is Instead, vote on whether points are in the same cluster (label independent) Then, come up with labels after voting     [[thoughts/hierarchical clustering]]  "
+    content="Set of techniques to find components that belong together.
+Note: Grouping is how the human visual system perceives things and clustering is the actual algorithm itself."
   />
   <title>
     Clustering
@@ -86,13 +86,13 @@ Methods  [[thoughts/K-means|K-means]] (most popular) [[thoughts/density-based cl
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.95c4296c95040a97a79ef1ef4b1f5e35.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.5ddd1e9ca61b61d63072e91fef928ea8.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.e1f893f9729437c1916f1bc7b09eeebf.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.1929e30b2312de2bb4c92af0684b1242.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -399,6 +399,8 @@ Sep 26, 2022
 
 
 
+<p>Set of techniques to find components that belong together.</p>
+<p>Note: Grouping is how the human visual system perceives things and clustering is the actual algorithm itself.</p>
 <p>We want to assign examples to &ldquo;groups&rdquo;.</p>
 <a href="#methods"><h2 id="methods"><span class="hanchor" ariaLabel="Anchor"># </span>Methods</h2></a>
 <ul>
