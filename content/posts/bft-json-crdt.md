@@ -1,17 +1,22 @@
 ---
-title: "Building a Byzantine Fault Tolerant CRDT"
+title: "Building a Byzantine Fault Tolerant JSON CRDT"
 date: 2022-07-11
 tags:
 - seed
 draft: true
 ---
 
+- reliable causal broadcast
+-  This doesn't mean that conflict doesn't ever occur, but we are able to always determine the output up front, based on a metadata contained within the structure itself.
+
 - [[thoughts/State Machine Replication (SMR)|state machine replication]] is hard
 	- traditional consensus needs (tbd) rounds of communication, making it infeasible for real-time communication
-	- [[thoughts/CRDT]]s allow us to achieve that
+		- "When application state is replicated across the globe, developers often face stark choices regarding replica consistency. Strong consistency can be enforced in a general-purpose way at the storage or memory layer via classical distributed coordination (consensus, transactions, etc.), but this is often unattractive for latency and availability reasons. Alternatively, application developers can build on “weakly” consistent storage models that do not use coordination; in this case developers must reason about consistency at the application level"
+	- acid vs base
+	- [[thoughts/CRDT]]s allow us to achieve that (with some caveats)
 - understanding crdts
 	- we know that most transport algorithms guarantee ordering, so why do we need CRDTs?
-	- well, imagine a list
+	- well, imagine a TCP connection
 		- it works for two people communicating directly with each other
 		- but as soon as you have 3 people, 
 	- why we need them
@@ -20,6 +25,7 @@ draft: true
 	- we can encode causal dependencies by tracking causal parent (origin field)
 	- another problem: how do you order things with the same origin? we need a sense of time. we need clocks!
 		- lamport clocks to the rescue
+		- not time in the traditional sense, but logical sense
 	- imagine a 'time frontier'
 		- fancy terminology: hasse diagram
 		- if we receive anything that isn't the very next update we are expecting, we can queue it up for later
@@ -32,7 +38,7 @@ draft: true
 		- potential optimizations
 			- yjs uses a doubly-linked list for faster insert + a cursor to track last visited position
 				- assumes that editing patterns are *not* random (which is true for most applications due)
-			- diamond-types (josephg) uses a range tree for even faster insert + find
+			- diamond-types (josephg) and the new automerge uses a b-tree for even faster insert + find
 	- limitations
 		- [[thoughts/CALM Theorem]]: can't really circumvent this without synchronization
 			- as a result, no garbage collection
@@ -40,7 +46,28 @@ draft: true
 			- projects like BLOOM try to exploit this
 		- byzantine fault tolerance ... up until now
 - adding byzantine fault tolerance
+	- allow us to use CRDTs in untrusted/permissionless environments! huge win
 	- traditionally up until $f < \frac n 3$ as per [[thoughts/33% Impossibility Result]], most blockchains tout this
+	- but we can get a stronger property of $f  < n$
+	- what does BFT mean in this context?
+		- different from BFT in a consensus context
+		- consensus is notably different from collaborative algorithms like CRDTs
+			- consensus focuses on choosing one correct value
+				- footnote: if you want this behaviour, you can use supermajority quorums like what Tendermind and PBFT do
+			- collaborative algorithms focus on converging to a correct state while attempting to preserve everyone's intentions
+		- a byzantine actor can attempt to
+			- send malformed updates
+			- attempt to DDOS the network
+			- not forward information from honest nodes (eclipse attack)
+			- send invalid updates
+				- messages that have duplicate IDs
+				- send incorrect sequence numbers (equivocation attack)
+				- 'forge' updates from another user
+		- we want to prevent these from causing state divergence
+		- however, this means that byzantine actors can still send a bunch of 'valid' updates that may be unwanted
+		- imagine you sent a Google Docs link to a group of people
+			- one of them is mucking around and inserting a bunch of images and removing information
+			- these are all 'valid' operations as what everyone sees on their screen is still the same thing
 	- https://arxiv.org/abs/2012.00472 
 		- Citation: Martin Kleppmann and Heidi Howard. 2020. Byzantine Eventual Consistency and the Fundamental Limits of Peer-to-Peer Databases
 		- a P2P system cannot rely on nodes always behaving the way that the designers of the system intended
@@ -50,18 +77,37 @@ draft: true
 		- We also conjecture that there is only one operation-based CRDT design supporting noncommutative operations that fulfills SEC in Byzantine environments with any number of faults.
 		- Operation-based CRDTs that provide inherent identity and inherent ordering of operations are equivocation-tolerant
 		- The happened-before relation being a partial order inherently leads to a directed, acyclic graph of all operations.
-		- A hash-chained directed acyclic graph as described in [5,4] is the only operation-based CRDT with non-commutative operations that provides SEC for any number of Byzantine faults, i.e., has fault tolerance n > f.
+		- A hash-chained directed acyclic graph as described in, is the only operation-based CRDT with non-commutative operations that provides SEC for any number of Byzantine faults, i.e., has fault tolerance n > f.
 	- hash graph + signed message digests -> can no longer fake operations
+		- technically this is enough if every node is connected to each other
+		- essentially [[thoughts/content addressed storage]] for our operations
 	- ensuring eventual delivery (basically, [[thoughts/message broadcast#Causal Broadcast]])
 		- [[thoughts/Byzantine Broadcast]] (we can actually get away with weaker requirements here)
 			- dont need total order broadcast, just causal broadcast
-		- Assumptions: we assume that in the graph of replicas and network links, the correct replicas form a single connected component
-			- If two correct replicas can only communicate via faulty replicas, then no algorithm can guarantee data exchange between those replicas, as the adversary can always block communication (this is known as an eclipse attack)
-			- To ensure eventual delivery, we assume that replicas periodically attempt to reconnect to each other and reconcile their sets of messages to discover any missing messages
 		- Eager reliable broadcast: first time a node receives a message, re-broadcast to each other node
+			- on receiving an 'out of order' message, save it in a queue until it is ready
+			- occasionally retry
+		- potential optimizations
 			- Reliable but expensive! $O(n^2)$ messages for $n$ nodes
-		- we need to figure out a fast way of reconciling updates between nodes
-			- we can do this using a hash graph! very similar to git fetch and git push
-- so it turns out we can turn this bft list crdt into arbitrary JSON
-
-## Further Work
+			- consider the worst case scenario where all the honest nodes are in a line
+			- we can reformulate this problem kind of like pull requests where nodes ask for updates from other nodes periodically
+			- 
+	- the cool part is that we don't need to modify the underlying CRDT itself, it can be fully retrofit on top of it
+		- we can create a 'bft adapter' layer between the transport and application layer that is responsible
+		- modify two places
+			- generating IDs for operations
+			- checking if an operation is valid
+- finally, a word of warning on the safety of building applications on top of CRDTs
+	- difference between view and the model
+	- One might say that CRDTs provide Schrödinger consistency guarantees: they are guaranteed to be consistent only if they are not viewed.
+		- https://arxiv.org/pdf/2210.12605.pdf
+- making it JSON
+	- difficult because data types can change
+	- example
+		- think about A assigning a key a as a list and adds b as an element
+		- B assigns a key as a map and adds an entry c
+		- how do we resolve this?
+	- using a fixed schema JSON-like datatype
+	- caveat: can't update schema easily!
+		- imagine we have an outdate peer on v1 and everyone else is on v2
+		- will not diverge because of bft but all changes from v1 will likely be rejected
