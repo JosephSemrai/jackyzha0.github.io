@@ -4,16 +4,4 @@ tags:
 - evergreen
 ---
 
-Welcome to my little [garden](posts/networked-thought.md) on the [internet](thoughts/Internet.md)! I try to spend some time here [playing](posts/play.md), [[thoughts/writing|writing]], and [building out in the open](thoughts/building%20in%20public.md).
-Currently, I'm working on [Friday](https://friday.education) to help students across the world access AI-based tutoring for free. In my spare time, I create and [[thoughts/maintenance|maintain]] a number of widely used open-source [projects](thoughts/Projects.md).
-
-I'm curious about how we can better [incentivize](thoughts/incentives.md) [public goods](thoughts/public%20goods.md) [funding](thoughts/funding.md), support better [interactions](thoughts/interaction%20design.md) with computers and [[thoughts/Rhizome Proposal|data]], and be more responsible stewards of technology.
-
-In this era of my life, I’m working towards being someone who is [unabashedly excited and curious about the world](https://www.youtube.com/watch?v=Khfe3jBuq8c&list=PLMs_JcuNozJbxC91R5skgPpL7cnJuICun).
-
-Though I can't quite yet provide you a guided tour of this digital garden, I can leave you a list of places to explore as suggestions.
-
-- [Writing](/posts): a collection of my favourite writing;
-- [Projects](thoughts/Projects.md): a collection of projects I've hacked on;
-- [Failure Resume](posts/a-failure-resume.md): my failure resume;
-<!-- - [Reading List](/books): books that are in some state of read, reading, or want to read. -->
+Welcome! This is a place that will gradually grow into a collection of my thoughts, projects, and things that I care about.
