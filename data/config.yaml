@@ -12,8 +12,8 @@ enableContextualBacklinks: true
 enableRecentNotes: false
 enableGitHubEdit: true
 GitHubLink: https://github.com/josephsemrai/personal-hugo/tree/hugo/content
-# enableSemanticSearch: true
-# operandApiKey: "62ff9f9c-5230-4693-9a74-905b2a051460"
+enableSemanticSearch: true
+operandApiKey: "62ff9f9c-5230-4693-9a74-905b2a051460"
 description: Hi, I'm Joe. Welcome to a place where I store my notes and thoughts (every so often).
   I’m curious about how to pursue the ethical use of advances in AI, the power of large language models & natural language processing, and how computers might change how we educate the next generation.
   I love building things that I care about or find fun.
