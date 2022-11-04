@@ -1,7 +1,7 @@
 name: Joseph Semrai
 enableToc: false
 openToc: false
-enableLinkPreview: true
+enableLinkPreview: false
 enableLatex: true
 enableCodeBlockTitle: true
 enableCodeBlockCopy: true
