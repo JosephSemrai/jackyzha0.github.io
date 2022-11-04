@@ -13,7 +13,7 @@ enableGitInfo = true
 title = "josephsemrai.com"
 
 [author]
-  name = "Jacky Zhao"
+  name = "Joseph Semrai"
 
 [markup]
     [markup.tableOfContents]
