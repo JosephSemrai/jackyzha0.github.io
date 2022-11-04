@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
- 
+
+
 <head>
   
   <meta charset="UTF-8" />
@@ -16,57 +17,90 @@ A way of planning with a wider view of interests than just what we want right no
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   
-  <meta property="og:url" content="https://josephsemrai.com" />
-  <meta property="og:title" content="" /> <meta
-  property="og:description" content="" />
-  <meta property="og:image" content="https://josephsemrai.com/res/og-card.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@josephsemrai" />
-  <meta name="twitter:title" content=""> <meta name="twitter:description"
-  content="" />
-  <meta name="twitter:image" content="https://josephsemrai.com/res/og-card.png" />
+  <meta property="og:url" content="https://jzhao.xyz" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="https://jzhao.xyz/res/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@_jzhao">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://jzhao.xyz/res/og-card.png" />
+
 
   
-     
-  <link
-    rel="shortcut icon"
-    type="image/png"
-    
-    
-    href="https://josephsemrai.com//icon.png"
-  /> 
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="https://josephsemrai.com//icon.png" />
+  
 
   
-                        
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <link href="https://josephsemrai.com/styles.3f792f95b046b8a6c4dbf66a4412e3d0.min.css" rel="stylesheet" />
 
   
-  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link" />
+  <link href="https://josephsemrai.com/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
 
-  
-     
-  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
-    
-  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
    
+  
+  
+  
+  
+  <script src="https://josephsemrai.com/js/darkmode.b7c024e9bb997da22db940f4dcab60a5.min.js"></script>
+  
+  
+  
+  <script src="https://josephsemrai.com/js/util.9825137f5e7825e8553c68ce39ac9e44.min.js"></script>
+  
+  
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
 
 
-
+    
   <script src="https://unpkg.com/@floating-ui/core@0.7.3"></script>
   <script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>
   
   <script src="https://josephsemrai.com/js/popover.53ad9a087e3feeaaa12b63bfd02d923b.min.js"></script>
 
   
-   
+  
+  
   <script src="https://josephsemrai.com/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js"></script>
-    
+  
+
+  
+  
   <script src="https://josephsemrai.com/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js"></script>
-   
+  
+
+  
 
   
    
@@ -86,13 +120,13 @@ A way of planning with a wider view of interests than just what we want right no
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.fea5ede58640e1427d4531bf8d1b9324.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.dee05ef2994797ecc81100d497220c53.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.c88391f14b92d57c898ae3a16738ca03.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.ff6f4414abbc65bc9d0bf59e3b4cdf52.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -116,7 +150,7 @@ A way of planning with a wider view of interests than just what we want right no
       
 
       
-
+     
       
       initPopover(
         "https://josephsemrai.com",
@@ -165,7 +199,8 @@ A way of planning with a wider view of interests than just what we want right no
       
     };
   </script>
-   
+  
+  
   <script type="module">
     import { attachSPARouting } from "https:\/\/josephsemrai.com\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
     attachSPARouting(init, render)
