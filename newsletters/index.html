@@ -85,13 +85,13 @@
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.fea5ede58640e1427d4531bf8d1b9324.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.416def69ade40560227e9acb8185ff44.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.6884f189055b388d8e06cbfea4cd2b19.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.513c8815416dab1ee00637ac3792efc3.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -239,78 +239,6 @@ if (!doNotTrack) {
         <h1>All Newsletters</h1>
         
         <ul class="section-ul"><li class="section-li">
-        <div class="section">
-            <p class="meta">
-                
-Jun 4, 2021
-
-
-            </p>
-            <div class="desc">
-              <h3><a href="https://josephsemrai.com/newsletters/issue-4/" class="internal-link" data-src="/newsletters/issue-4/">The bookstore with a single book, knowledge distillation, and tight feedback loops</a></h3>
-            </div>
-            <div class="spacer"></div>
-            <ul class="tags">
-                
-                <li><a href="https://josephsemrai.com/tags/fruit/">Fruit</a></li>
-                
-            </ul>
-        </div>
-    </li><li class="section-li">
-        <div class="section">
-            <p class="meta">
-                
-Apr 20, 2021
-
-
-            </p>
-            <div class="desc">
-              <h3><a href="https://josephsemrai.com/newsletters/issue-3/" class="internal-link" data-src="/newsletters/issue-3/">Sun sneezing, infrastructure moderation, and why bikes are better than tricycles</a></h3>
-            </div>
-            <div class="spacer"></div>
-            <ul class="tags">
-                
-                <li><a href="https://josephsemrai.com/tags/fruit/">Fruit</a></li>
-                
-            </ul>
-        </div>
-    </li><li class="section-li">
-        <div class="section">
-            <p class="meta">
-                
-Feb 1, 2021
-
-
-            </p>
-            <div class="desc">
-              <h3><a href="https://josephsemrai.com/newsletters/issue-2/" class="internal-link" data-src="/newsletters/issue-2/">Spider-man neurons, hearing fractals, and fulfilment</a></h3>
-            </div>
-            <div class="spacer"></div>
-            <ul class="tags">
-                
-                <li><a href="https://josephsemrai.com/tags/fruit/">Fruit</a></li>
-                
-            </ul>
-        </div>
-    </li><li class="section-li">
-        <div class="section">
-            <p class="meta">
-                
-Jan 31, 2021
-
-
-            </p>
-            <div class="desc">
-              <h3><a href="https://josephsemrai.com/newsletters/issue-1/" class="internal-link" data-src="/newsletters/issue-1/">A request for coffee chats</a></h3>
-            </div>
-            <div class="spacer"></div>
-            <ul class="tags">
-                
-                <li><a href="https://josephsemrai.com/tags/fruit/">Fruit</a></li>
-                
-            </ul>
-        </div>
-    </li><li class="section-li">
         <div class="section">
             <p class="meta">
                 

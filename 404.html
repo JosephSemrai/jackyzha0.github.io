@@ -85,13 +85,13 @@
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.fea5ede58640e1427d4531bf8d1b9324.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.416def69ade40560227e9acb8185ff44.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.6884f189055b388d8e06cbfea4cd2b19.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.513c8815416dab1ee00637ac3792efc3.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({

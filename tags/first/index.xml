@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on josephsemrai.com</title>
-    <link>https://josephsemrai.com/posts/</link>
-    <description>Recent content in Posts on josephsemrai.com</description>
+    <title>first on josephsemrai.com</title>
+    <link>https://josephsemrai.com/tags/first/</link>
+    <description>Recent content in first on josephsemrai.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Dec 2020 13:43:34 -0800</lastBuildDate><atom:link href="https://josephsemrai.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Dec 2020 13:43:34 -0800</lastBuildDate><atom:link href="https://josephsemrai.com/tags/first/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First post</title>
       <link>https://josephsemrai.com/posts/2020/</link>

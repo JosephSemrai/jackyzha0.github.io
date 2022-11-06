@@ -7,8 +7,7 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="Hi there and thanks for signing up for my newsletter!
-I’ll try to keep these in a rough 3-2-1 fashion in each issue, with 3 things I’ve found interesting from others, 2 things I’ve been wondering about, and 1 thing I’ve done."
+    content="First newsletter!"
   />
   <title>
     Hello world!
@@ -86,13 +85,13 @@ I’ll try to keep these in a rough 3-2-1 fashion in each issue, with 3 things I
 
     const BASE_URL = "https://josephsemrai.com/"
     const fetchData = Promise.all([
-          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.fea5ede58640e1427d4531bf8d1b9324.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/linkIndex.416def69ade40560227e9acb8185ff44.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.6884f189055b388d8e06cbfea4cd2b19.min.json")
+          fetch("https:\/\/josephsemrai.com\/indices\/contentIndex.513c8815416dab1ee00637ac3792efc3.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -277,49 +276,7 @@ Jan 9, 2021
 
 
 
-<p>Hi there and thanks for signing up for my newsletter!</p>
-<p>I’ll try to keep these in a rough 3-2-1 fashion in each issue, with 3 things I’ve found interesting from others, 2 things I’ve been wondering about, and 1 thing I’ve done.</p>
-<a href="#3-things-ive-found-interesting"><h2 id="3-things-ive-found-interesting"><span class="hanchor" ariaLabel="Anchor"># </span>3 things I’ve found interesting</h2></a>
-<ol>
-<li>Found out about 
-
-<a href="https://100r.co/site/about_us.html" rel="noopener">100 Rabbits</a>, a tag-team of two people sailing around the world making open-source software</li>
-<li>OpenAIs recent work with 
-
-<a href="https://openai.com/blog/dall-e/" rel="noopener">DALL-E</a> and 
-
-<a href="https://openai.com/blog/clip/" rel="noopener">CLIP</a>. Some really revolutionary stuff in combining text and image domains.</li>
-<li>Vlogbrothers on 
-
-<a href="https://www.youtube.com/watch?v=salgtCpST3A" rel="noopener">How To Change What you Want</a>. Interesting video on how content we consume steers our wants and what we want to want affects our actual wants. Hank says it in a way that makes a lot more sense so give it a watch.</li>
-</ol>
-<a href="#2-things-ive-been-wondering-about"><h2 id="2-things-ive-been-wondering-about"><span class="hanchor" ariaLabel="Anchor"># </span>2 things I’ve been wondering about</h2></a>
-<ol>
-<li>Why didn’t I start writing earlier? Writing has always been a way to help me organize my own thoughts. Now that I’ve started writing more frequently, I feel like I’m able to better put the jumble of thoughts inside my brain onto paper (or I guess a Markdown file in this case).</li>
-<li>Promoting healthier 
-
-
-
-
-
-<a
-  href="/thoughts/hackathons/"
-  rel="noopener" class="internal-link"
-  data-src="/thoughts/hackathons/">hacking culture</a>. Conversation inspired by 
-
-<a href="https://twitter.com/sarahbdhsn/status/1347666496718213120" rel="noopener">this tweet</a>. What can we do as hackathon organizers to make events less stressful/hypercompetitive for attendees (especially those who are differently-abled)?</li>
-</ol>
-<a href="#1-thing-ive-done"><h2 id="1-thing-ive-done"><span class="hanchor" ariaLabel="Anchor"># </span>1 thing I’ve done</h2></a>
-<p>I wrote a 
-
-
-
-
-
-<a
-  href="/posts/2020/"
-  rel="noopener" class="internal-link"
-  data-src="/posts/2020/">reflection piece about my 2020</a> as well as set some goals for the upcoming year! A few interesting tidbits on paratelic vs telic goal setting.</p>
+<p>First newsletter!</p>
 
 
     </article>
